@@ -1,0 +1,1110 @@
+{
+  "version": "1.0",
+  "checked_through": "2026-10-23",
+  "types": {
+    "agent": "Works for you",
+    "service": "Sold to businesses",
+    "rail": "Payments and data",
+    "door": "Stores, platforms, banks"
+  },
+  "predicates": {
+    "paid_by": "Who pays for it",
+    "partners_with": "Signed or connected",
+    "blocks": "Said no",
+    "member_of": "Personal Agent Protocol",
+    "terms_liability": "If it goes wrong",
+    "builds_own_agent": "Also builds its own agent",
+    "sells_detection": "Sells tools to spot agents",
+    "bot_contradicts_policy": "Bot said no, policy says yes",
+    "status": "Where it stands"
+  },
+  "entities": [
+    {
+      "id": "muse",
+      "name": "Muse",
+      "org": "Meta",
+      "type": "agent"
+    },
+    {
+      "id": "instinct",
+      "name": "Instinct",
+      "org": "Independent",
+      "type": "agent"
+    },
+    {
+      "id": "grok",
+      "name": "Grok Bot",
+      "org": "xAI",
+      "type": "agent"
+    },
+    {
+      "id": "gcart",
+      "name": "Universal Cart",
+      "org": "Google",
+      "type": "agent"
+    },
+    {
+      "id": "buyforme",
+      "name": "Buy for Me",
+      "org": "Amazon",
+      "type": "agent",
+      "paid_by_note": "Free to shoppers and to brands so far; Amazon hasn't said how it will make money from it. Amazon as a whole is paid by both shoppers and sellers."
+    },
+    {
+      "id": "chatgpt",
+      "name": "ChatGPT checkout",
+      "org": "OpenAI",
+      "type": "agent"
+    },
+    {
+      "id": "sierra",
+      "name": "Sierra",
+      "org": "Customer-service AI",
+      "type": "service"
+    },
+    {
+      "id": "riskified",
+      "name": "Riskified",
+      "org": "Fraud prevention",
+      "type": "service"
+    },
+    {
+      "id": "stripe",
+      "name": "Stripe",
+      "org": "Payments",
+      "type": "rail"
+    },
+    {
+      "id": "paypal",
+      "name": "PayPal",
+      "org": "Payments",
+      "type": "rail"
+    },
+    {
+      "id": "plaid",
+      "name": "Plaid",
+      "org": "Account data",
+      "type": "rail"
+    },
+    {
+      "id": "visa",
+      "name": "Visa",
+      "org": "Card network",
+      "type": "rail"
+    },
+    {
+      "id": "mastercard",
+      "name": "Mastercard",
+      "org": "Card network",
+      "type": "rail"
+    },
+    {
+      "id": "amex",
+      "name": "American Express",
+      "org": "Card network",
+      "type": "rail"
+    },
+    {
+      "id": "amazon",
+      "name": "Amazon",
+      "org": "Retail",
+      "type": "door",
+      "kind": "store"
+    },
+    {
+      "id": "jpm",
+      "name": "JPMorgan Chase",
+      "org": "Bank",
+      "type": "door",
+      "kind": "bank"
+    },
+    {
+      "id": "shopify",
+      "name": "Shopify",
+      "org": "Commerce platform",
+      "type": "door",
+      "kind": "platform"
+    },
+    {
+      "id": "walmart",
+      "name": "Walmart",
+      "org": "Retail",
+      "type": "door",
+      "kind": "store"
+    },
+    {
+      "id": "target",
+      "name": "Target",
+      "org": "Retail",
+      "type": "door",
+      "kind": "store"
+    },
+    {
+      "id": "bestbuy",
+      "name": "Best Buy",
+      "org": "Retail",
+      "type": "door",
+      "kind": "store"
+    },
+    {
+      "id": "sephora",
+      "name": "Sephora",
+      "org": "Retail",
+      "type": "door",
+      "kind": "store"
+    },
+    {
+      "id": "wayfair",
+      "name": "Wayfair",
+      "org": "Retail",
+      "type": "door",
+      "kind": "store"
+    },
+    {
+      "id": "gap",
+      "name": "Gap",
+      "org": "Retail",
+      "type": "door",
+      "kind": "store"
+    },
+    {
+      "id": "instacart",
+      "name": "Instacart",
+      "org": "Grocery delivery",
+      "type": "door",
+      "kind": "platform"
+    },
+    {
+      "id": "expedia",
+      "name": "Expedia",
+      "org": "Travel",
+      "type": "door",
+      "kind": "platform"
+    },
+    {
+      "id": "ticketmaster",
+      "name": "Ticketmaster",
+      "org": "Tickets",
+      "type": "door",
+      "kind": "platform"
+    },
+    {
+      "id": "delta",
+      "name": "Delta",
+      "org": "Airline",
+      "type": "door",
+      "kind": "store"
+    }
+  ],
+  "positions": [
+    {
+      "entity": "grok",
+      "side": "you",
+      "claims": [
+        "c-grok-plan"
+      ]
+    },
+    {
+      "entity": "muse",
+      "side": "businesses",
+      "claims": [
+        "c-muse-fee",
+        "c-muse-fee-now"
+      ]
+    },
+    {
+      "entity": "gcart",
+      "side": "businesses",
+      "claims": [
+        "c-gcart-ads",
+        "c-gcart-nocut"
+      ]
+    },
+    {
+      "entity": "chatgpt",
+      "side": "businesses",
+      "claims": [
+        "c-chatgpt-checkout",
+        "c-chatgpt-winddown"
+      ],
+      "note": "Wound down in 2026."
+    },
+    {
+      "entity": "sierra",
+      "side": "businesses",
+      "claims": [
+        "c-sierra-pricing"
+      ]
+    },
+    {
+      "entity": "instinct",
+      "side": "businesses",
+      "claims": [
+        "c-instinct-takerate"
+      ]
+    },
+    {
+      "entity": "riskified",
+      "side": "businesses",
+      "claims": [
+        "c-riskified"
+      ]
+    },
+    {
+      "entity": "stripe",
+      "side": "businesses",
+      "claims": [
+        "c-stripe-fee"
+      ]
+    },
+    {
+      "entity": "visa",
+      "side": "businesses",
+      "claims": [
+        "c-visa-banks"
+      ]
+    },
+    {
+      "entity": "mastercard",
+      "side": "businesses",
+      "claims": [
+        "c-mastercard-banks"
+      ]
+    },
+    {
+      "entity": "plaid",
+      "side": "businesses",
+      "claims": [
+        "c-plaid-consumers"
+      ]
+    },
+    {
+      "entity": "amex",
+      "side": "both",
+      "claims": [
+        "c-amex-merchants",
+        "c-amex-cardfees"
+      ]
+    },
+    {
+      "entity": "paypal",
+      "side": "both",
+      "claims": [
+        "c-paypal-merchants",
+        "c-paypal-consumers"
+      ]
+    }
+  ],
+  "coalitions": [
+    {
+      "id": "pap",
+      "name": "Personal Agent Protocol",
+      "announced": "2026-10-06",
+      "leads": [
+        "meta",
+        "sierra"
+      ],
+      "lists": {
+        "meta": {
+          "label": "Meta's announcement",
+          "members": [
+            "Genesys",
+            "NiCE",
+            "Decagon",
+            "Rocket",
+            "Shopify",
+            "Stripe",
+            "Walmart"
+          ],
+          "source_url": "https://www.facebook.com/business/news/a-new-way-for-businesses-and-personal-agents-to-work-together",
+          "verified_on": "2026-10-17"
+        },
+        "sierra": {
+          "label": "Sierra's announcement",
+          "members": [
+            "Genesys",
+            "Instinct",
+            "Rocket",
+            "Shopify",
+            "Stripe",
+            "Walmart"
+          ],
+          "source_url": "https://sierra.ai/blog/introducing-personal-agent-protocol",
+          "verified_on": "2026-10-17"
+        }
+      },
+      "lead_entities": {
+        "meta": "muse",
+        "sierra": "sierra"
+      },
+      "lead_note": {
+        "muse": "Meta co-leads it and takes part through Muse and Meta Business Agent (Meta's announcement).",
+        "sierra": "Co-leads it."
+      }
+    }
+  ],
+  "claims": [
+    {
+      "id": "c-muse-fee",
+      "subject": "muse",
+      "predicate": "paid_by",
+      "object": "merchants",
+      "text": "Free to you for now. Mark Zuckerberg says Meta expects to take a very small cut of each purchase, paid by the businesses rather than the shopper.",
+      "quote": "the business model over time that we expect is to effectively just take a very small cut of whatever the transaction is … not even necessarily the person paying for it. It'll come from the businesses that they're working with",
+      "speaker": "Mark Zuckerberg, Sources podcast with Alex Heath (Sept. 8, 2026)",
+      "source_url": "https://www.youtube.com/watch?v=Lx8lrn-cytc&t=1551s",
+      "source_name": "Sources podcast (video)",
+      "kind": "first_hand",
+      "archive_url": "https://web.archive.org/web/20261019175103/https://www.youtube.com/watch?v=Lx8lrn-cytc",
+      "verified_on": "2026-10-19"
+    },
+    {
+      "object": null,
+      "speaker": null,
+      "archive_url": "https://web.archive.org/web/20261019175235/https://help.shopify.com/en/manual/online-sales-channels/agentic-storefronts/meta",
+      "verified_on": "2026-10-23",
+      "id": "c-muse-fee-now",
+      "subject": "muse",
+      "predicate": "paid_by",
+      "text": "No fee yet. Shopify tells its stores that selling through Meta's checkout, which covers Muse, costs nothing beyond standard payment processing.",
+      "quote": "There are no fees associated with selling in Meta's direct checkout. You pay only your standard payment processing fees.",
+      "source_url": "https://help.shopify.com/en/manual/online-sales-channels/agentic-storefronts/meta",
+      "source_name": "Shopify Help Center",
+      "kind": "first_hand"
+    },
+    {
+      "id": "c-muse-risk",
+      "subject": "muse",
+      "predicate": "terms_liability",
+      "object": "you",
+      "text": "Muse's terms put the money risk on you and cap Meta's liability.",
+      "quote": "you bear all risk of financial loss arising from such actions and your use of Muse",
+      "source_url": "https://muse.ai/terms",
+      "source_name": "Muse Supplemental Terms of Service (Sept. 8, 2026)",
+      "kind": "first_hand",
+      "archive_url": "https://web.archive.org/web/20261019175429/https://muse.ai/terms",
+      "verified_on": "2026-10-23"
+    },
+    {
+      "id": "c-muse-cap",
+      "subject": "muse",
+      "predicate": "terms_liability",
+      "object": "you",
+      "text": "Meta's total liability is capped at $250, or what you paid Meta in the past 12 months if that is more.",
+      "quote": "OUR AGGREGATE LIABILITY ARISING OUT OF OR RELATING TO THESE TERMS OR OUR SERVICES (INCLUDING MUSE) HEREUNDER WILL NOT EXCEED THE GREATER OF $250 OR THE AMOUNT YOU HAVE PAID US IN THE TWELVE MONTHS PRECEDING THE EVENTS GIVING RISE TO THE MOST RECENT CLAIM",
+      "source_url": "https://muse.ai/terms",
+      "source_name": "Muse Supplemental Terms of Service (Sept. 8, 2026)",
+      "kind": "first_hand",
+      "archive_url": "https://web.archive.org/web/20261019175429/https://muse.ai/terms",
+      "verified_on": "2026-10-23"
+    },
+    {
+      "id": "c-muse-shopify",
+      "subject": "muse",
+      "predicate": "partners_with",
+      "object": "shopify",
+      "text": "Muse can search Shopify's whole catalog and pay with Shop Pay.",
+      "quote": "Muse can access the entire Shopify product catalog agentically and use Link by Stripe and now Shop Pay to buy almost anything on the internet",
+      "source_url": "https://techcrunch.com/2026/09/23/everything-new-coming-to-metas-ai-agent-muse/",
+      "source_name": "TechCrunch",
+      "kind": "report",
+      "archive_url": "https://web.archive.org/web/20261019175611/https://techcrunch.com/2026/09/23/everything-new-coming-to-metas-ai-agent-muse/",
+      "verified_on": "2026-10-23"
+    },
+    {
+      "id": "c-muse-stripe",
+      "subject": "muse",
+      "predicate": "partners_with",
+      "object": "stripe",
+      "text": "Stripe's Link wallet pays for Muse's purchases.",
+      "quote": "Stripe helps Muse, Meta’s new personal AI agent, shop across the internet with Link",
+      "source_url": "https://stripe.com/newsroom/news/stripe-helps-meta-muse-shop-with-link",
+      "source_name": "Stripe newsroom",
+      "kind": "first_hand",
+      "archive_url": "https://web.archive.org/web/20261019175756/https://stripe.com/newsroom/news/stripe-helps-meta-muse-shop-with-link",
+      "verified_on": "2026-10-23"
+    },
+    {
+      "id": "c-muse-paypal",
+      "subject": "muse",
+      "predicate": "partners_with",
+      "object": "paypal",
+      "text": "Meta added more support for paying with PayPal.",
+      "quote": "Meta has also added more support for payments with PayPal",
+      "source_url": "https://techcrunch.com/2026/09/23/everything-new-coming-to-metas-ai-agent-muse/",
+      "source_name": "TechCrunch",
+      "kind": "report",
+      "archive_url": "https://web.archive.org/web/20261019175611/https://techcrunch.com/2026/09/23/everything-new-coming-to-metas-ai-agent-muse/",
+      "verified_on": "2026-10-23"
+    },
+    {
+      "id": "c-muse-retail",
+      "subject": "muse",
+      "predicate": "partners_with",
+      "object": [
+        "bestbuy",
+        "gap",
+        "sephora",
+        "walmart",
+        "wayfair"
+      ],
+      "text": "Retail partners announced at Meta Connect.",
+      "quote": "a string of new partnerships with retailers, including Best Buy, Gap, Sephora, Walmart, and Wayfair",
+      "source_url": "https://techcrunch.com/2026/09/23/everything-new-coming-to-metas-ai-agent-muse/",
+      "source_name": "TechCrunch",
+      "kind": "report",
+      "archive_url": "https://web.archive.org/web/20261019175611/https://techcrunch.com/2026/09/23/everything-new-coming-to-metas-ai-agent-muse/",
+      "verified_on": "2026-10-23"
+    },
+    {
+      "id": "c-muse-expedia",
+      "subject": "muse",
+      "predicate": "partners_with",
+      "object": "expedia",
+      "text": "Hotel booking inside Muse, announced; Expedia stays the seller. No launch date yet.",
+      "quote": "Expedia remains the merchant of record for the bookings and payment is completed through Muse. No specific date has been given for when Expedia in Muse will be available.",
+      "source_url": "https://www.phocuswire.com/news/online/expedia-hotel-booking-meta-muse",
+      "source_name": "PhocusWire",
+      "kind": "report",
+      "archive_url": "https://web.archive.org/web/20260926191419/https://www.phocuswire.com/news/online/expedia-hotel-booking-meta-muse",
+      "verified_on": "2026-10-23"
+    },
+    {
+      "id": "c-muse-instacart",
+      "subject": "muse",
+      "predicate": "partners_with",
+      "object": "instacart",
+      "text": "Grocery carts through Instacart's connector program, announced as coming.",
+      "quote": "Muse will connect to Instacart’s grocery infrastructure via the company’s connector program",
+      "source_url": "https://massmarketretailers.com/instacart-brings-grocery-shopping-to-metas-muse/",
+      "source_name": "Mass Market Retailers",
+      "kind": "report",
+      "archive_url": "https://web.archive.org/web/20261019181639/https://massmarketretailers.com/instacart-brings-grocery-shopping-to-metas-muse/",
+      "verified_on": "2026-10-23"
+    },
+    {
+      "id": "c-muse-ticketmaster",
+      "subject": "muse",
+      "predicate": "partners_with",
+      "object": "ticketmaster",
+      "text": "Muse recommends shows; buying still happens on Ticketmaster's site.",
+      "quote": "Currently, users redirect to Ticketmaster’s website for actual purchases.",
+      "source_url": "https://barrettmedia.com/?p=283560",
+      "source_name": "Barrett Media",
+      "kind": "report",
+      "archive_url": "https://web.archive.org/web/20261019181817/https://barrettmedia.com/2026/09/11/meta-muse-ai-partners-with-ticketmaster-for-concerts/",
+      "verified_on": "2026-10-23"
+    },
+    {
+      "id": "c-amazon-muse",
+      "subject": "amazon",
+      "predicate": "blocks",
+      "object": "muse",
+      "text": "Amazon turns Muse away with a pop-up.",
+      "quote": "Continued access by an unauthorized AI agent violates Amazon’s Conditions of Use, to which our customers have agreed.",
+      "source_url": "https://www.adweek.com/commerce/amazon-locks-out-metas-muse-in-agentic-shopping-standoff/",
+      "source_name": "Adweek",
+      "kind": "report",
+      "archive_url": "https://web.archive.org/web/20261019182002/https://www.adweek.com/commerce/amazon-locks-out-metas-muse-in-agentic-shopping-standoff/",
+      "verified_on": "2026-10-23"
+    },
+    {
+      "id": "c-jpm-agents",
+      "subject": "jpm",
+      "predicate": "blocks",
+      "object": [
+        "muse",
+        "instinct"
+      ],
+      "text": "Outside agents can't act on retail customers' accounts. Through Plaid they can read balances, but not move money.",
+      "quote": "JPMorgan Chase blocks outside AI agents like Muse, Instinct from directly accessing accounts",
+      "source_url": "https://www.cnbc.com/2026/10/13/jpmorgan-ai-agents-account-access.html",
+      "source_name": "CNBC",
+      "kind": "report",
+      "archive_url": "https://web.archive.org/web/20261019175904/https://www.cnbc.com/2026/10/13/jpmorgan-ai-agents-account-access.html",
+      "verified_on": "2026-10-23",
+      "speaker": "CNBC headline"
+    },
+    {
+      "id": "c-jpm-readonly",
+      "subject": "jpm",
+      "predicate": "status",
+      "object": "plaid",
+      "text": "Read-only access through connectors like Plaid; no payments.",
+      "quote": "AI agents can access some customer data from Chase accounts in a read-only fashion, such as customer balances, if Plaid or another connector has the user's credentials. But they can't send money or pay a bill",
+      "source_url": "https://www.cnbc.com/2026/10/13/jpmorgan-ai-agents-account-access.html",
+      "source_name": "CNBC",
+      "kind": "report",
+      "archive_url": "https://web.archive.org/web/20261019175904/https://www.cnbc.com/2026/10/13/jpmorgan-ai-agents-account-access.html",
+      "verified_on": "2026-10-23"
+    },
+    {
+      "id": "c-jpm-smartcash",
+      "subject": "jpm",
+      "predicate": "builds_own_agent",
+      "object": null,
+      "text": "Piloting its own tool, Smart Cash, that moves customers' money for yield.",
+      "quote": "The bank is piloting Smart Cash, an internal tool to forecast cash flow and move funds to maximize yield.",
+      "source_url": "https://www.cnbc.com/2026/10/13/jpmorgan-ai-agents-account-access.html",
+      "source_name": "CNBC",
+      "kind": "report",
+      "archive_url": "https://web.archive.org/web/20261019175904/https://www.cnbc.com/2026/10/13/jpmorgan-ai-agents-account-access.html",
+      "verified_on": "2026-10-23"
+    },
+    {
+      "id": "c-jpm-liability",
+      "subject": "jpm",
+      "predicate": "terms_liability",
+      "object": "you",
+      "text": "Jamie Dimon warned customers who use outside agents about who carries the risk.",
+      "quote": "There's a liability transfer. They should understand the liability transfer.",
+      "speaker": "Jamie Dimon, Q3 earnings call",
+      "source_url": "https://www.bankingdive.com/news/jpmorgan-dimon-ai-agents-bank-customers-liability-transfer/832870/",
+      "source_name": "Banking Dive",
+      "kind": "report",
+      "archive_url": "https://web.archive.org/web/20261019182329/https://www.bankingdive.com/news/jpmorgan-dimon-ai-agents-bank-customers-liability-transfer/832870/",
+      "verified_on": "2026-10-23"
+    },
+    {
+      "id": "c-plaid-jpm",
+      "subject": "jpm",
+      "predicate": "paid_by",
+      "object": "plaid",
+      "text": "JPMorgan charges data middlemen, Plaid included, for account access.",
+      "quote": "JPMorgan moved to charge data middlemen including Plaid for access",
+      "source_url": "https://www.cnbc.com/2026/10/13/jpmorgan-ai-agents-account-access.html",
+      "source_name": "CNBC",
+      "kind": "report",
+      "archive_url": "https://web.archive.org/web/20261019175904/https://www.cnbc.com/2026/10/13/jpmorgan-ai-agents-account-access.html",
+      "verified_on": "2026-10-23"
+    },
+    {
+      "id": "c-plaid-consumers",
+      "subject": "plaid",
+      "predicate": "paid_by",
+      "object": "businesses",
+      "text": "Plaid doesn't charge consumers. The businesses that build on it pay.",
+      "quote": "Plaid is also free for consumers (end users). We don’t charge consumers for our services.",
+      "source_url": "https://support.plaid.com/hc/en-us/articles/16194695660311-Can-I-use-Plaid-for-free",
+      "source_name": "Plaid help center",
+      "kind": "first_hand",
+      "archive_url": "https://web.archive.org/web/20251006203445/https://support.plaid.com/hc/en-us/articles/16194695660311-Can-I-use-Plaid-for-free",
+      "verified_on": "2026-10-23"
+    },
+    {
+      "id": "c-instinct-funding",
+      "subject": "instinct",
+      "predicate": "status",
+      "object": null,
+      "text": "Raised $1 billion at a $10 billion valuation.",
+      "quote": "AI firm Instinct said on Monday it raised $1 billion in its latest funding round, quadrupling its valuation to $10 billion",
+      "source_url": "https://www.thestar.com.my/tech/tech-news/2026/09/28/ai-agent-firm-instinct-raises-1-billion-in-latest-funding-round",
+      "source_name": "Reuters",
+      "kind": "report",
+      "archive_url": "https://web.archive.org/web/20261019182541/https://www.thestar.com.my/tech/tech-news/2026/09/28/ai-agent-firm-instinct-raises-1-billion-in-latest-funding-round",
+      "verified_on": "2026-10-23"
+    },
+    {
+      "id": "c-instinct-takerate",
+      "subject": "instinct",
+      "predicate": "paid_by",
+      "object": "merchants",
+      "text": "Free to you. Its founder says merchants will pay a cut of each purchase made through it; how big a cut is still open.",
+      "quote": "the user is getting a free great experience and … the merchants on the other end who are benefiting from the business are … paying to be a part of that platform. So I see a blanket transaction … take rate being … enforced across the platform",
+      "speaker": "Noah Shinn, founder, on Invest Like the Best (Sept. 28, 2026), about 32 minutes in",
+      "source_url": "https://www.youtube.com/watch?v=Am7IWP8IpEc&t=1940s",
+      "source_name": "Invest Like the Best (video)",
+      "kind": "first_hand",
+      "archive_url": "https://web.archive.org/web/20261019182944/https://www.youtube.com/watch?v=Am7IWP8IpEc",
+      "verified_on": "2026-10-18"
+    },
+    {
+      "id": "c-grok-terms",
+      "subject": "grok",
+      "predicate": "terms_liability",
+      "object": "you",
+      "text": "If the approval step misses something, xAI says it isn't liable.",
+      "quote": "Provider is not liable for any Agentic Action that an approval or automated-review control fails to prevent.",
+      "source_url": "https://x.ai/legal/grok-bot-terms",
+      "source_name": "Grok Bot Terms",
+      "kind": "first_hand",
+      "archive_url": "https://web.archive.org/web/20261011200622/https://x.ai/legal/grok-bot-terms",
+      "verified_on": "2026-10-23"
+    },
+    {
+      "id": "c-grok-musk",
+      "subject": "grok",
+      "predicate": "terms_liability",
+      "object": "you",
+      "text": "Elon Musk promised on X that SpaceX would cover mistakes. Grok Bot's terms say xAI isn't liable when the approval step misses something.",
+      "quote": "If Grok @Bot makes a mistake with a purchase or leaks your card (never happened yet), SpaceX will make you whole.",
+      "speaker": "Elon Musk on X, Oct. 15, 2026",
+      "source_url": "https://x.com/i/status/2110610960474079445",
+      "source_name": "X",
+      "kind": "first_hand",
+      "archive_url": null,
+      "verified_on": "2026-10-19"
+    },
+    {
+      "id": "c-grok-plan",
+      "subject": "grok",
+      "predicate": "paid_by",
+      "object": "you",
+      "text": "You pay for it: Grok Bot comes with the Premium plan, $30 a month. The $8 plan doesn't include it.",
+      "quote": "Premium … 50% off for 1 month, then $30 monthly … Everything in Plus, and: 4x more usage compared to Plus AI Benefits Grok Bot",
+      "source_url": "https://grok.com/plans",
+      "source_name": "Grok plans page",
+      "kind": "first_hand",
+      "archive_url": null,
+      "verified_on": "2026-10-23"
+    },
+    {
+      "id": "c-gcart-merchants",
+      "subject": "gcart",
+      "predicate": "partners_with",
+      "object": [
+        "target",
+        "walmart",
+        "wayfair",
+        "sephora"
+      ],
+      "text": "A cart across stores, paid with Google Pay. The retailer stays the seller.",
+      "quote": "Shoppers can try these select checkout features soon across retailers like Nike, Sephora, Target, Ulta Beauty, Walmart, Wayfair and Shopify merchants such as Fenty and Steve Madden. Regardless of how a shopper chooses to buy, the retailer always remains the merchant of record.",
+      "source_url": "https://blog.google/products-and-platforms/products/shopping/shopping-updates-google-marketing-live",
+      "source_name": "Google blog",
+      "kind": "first_hand",
+      "archive_url": "https://web.archive.org/web/20261019184821/https://blog.google/products-and-platforms/products/shopping/shopping-updates-google-marketing-live/",
+      "verified_on": "2026-10-23"
+    },
+    {
+      "id": "c-gcart-ads",
+      "subject": "gcart",
+      "predicate": "paid_by",
+      "object": "merchants",
+      "text": "Stores pay Google through ads. Google is bringing the cart's checkout into the ad campaigns it sells them.",
+      "quote": "we’re starting to bring the power of UCP to your ad campaigns",
+      "source_url": "https://blog.google/products-and-platforms/products/shopping/shopping-updates-google-marketing-live",
+      "source_name": "Google blog",
+      "kind": "first_hand",
+      "archive_url": "https://web.archive.org/web/20261019184821/https://blog.google/products-and-platforms/products/shopping/shopping-updates-google-marketing-live/",
+      "verified_on": "2026-10-23"
+    },
+    {
+      "object": null,
+      "speaker": "Modern Retail, reporting what Google's Suresh Ganapathy said",
+      "archive_url": "https://web.archive.org/web/20261019184912/https://www.modernretail.co/technology/google-attracts-retailers-like-walmart-target-to-universal-cart-getting-shoppers-will-be-the-harder-part/",
+      "verified_on": "2026-10-23",
+      "id": "c-gcart-nocut",
+      "subject": "gcart",
+      "predicate": "paid_by",
+      "text": "No cut of each purchase: Google told Modern Retail it has no plans to take one.",
+      "quote": "Google has no plans to take a cut of the purchase",
+      "source_url": "https://www.modernretail.co/technology/google-attracts-retailers-like-walmart-target-to-universal-cart-getting-shoppers-will-be-the-harder-part/",
+      "source_name": "Modern Retail",
+      "kind": "report"
+    },
+    {
+      "id": "c-buyforme",
+      "subject": "amazon",
+      "predicate": "builds_own_agent",
+      "object": "buyforme",
+      "text": "Amazon's own agent buys from other brands' sites for you.",
+      "quote": "For eligible products, the Buy for Me agentic AI feature handles the entire purchase on your behalf using your primary address and credit card.",
+      "source_url": "https://www.aboutamazon.com/news/retail/alexa-for-shopping-ai-assistant",
+      "source_name": "Amazon (May 13, 2026)",
+      "kind": "first_hand",
+      "archive_url": "https://web.archive.org/web/20261019184953/https://www.aboutamazon.com/news/retail/alexa-for-shopping-ai-assistant",
+      "verified_on": "2026-10-23"
+    },
+    {
+      "id": "c-buyforme-after",
+      "subject": "buyforme",
+      "predicate": "terms_liability",
+      "object": "brands",
+      "text": "After the purchase, the brand handles delivery, returns and support.",
+      "quote": "Delivery, returns and exchanges, and customer service are managed by the brand store",
+      "source_url": "https://www.aboutamazon.com/news/retail/amazon-shopping-app-buy-for-me-brands",
+      "source_name": "Amazon (Apr. 3, 2025)",
+      "kind": "first_hand",
+      "archive_url": "https://web.archive.org/web/20261019185039/https://www.aboutamazon.com/news/retail/amazon-shopping-app-buy-for-me-brands",
+      "verified_on": "2026-10-23"
+    },
+    {
+      "id": "c-buyforme-shoppers",
+      "subject": "buyforme",
+      "predicate": "paid_by",
+      "object": null,
+      "text": "Free to shoppers.",
+      "quote": "All Amazon customers can use Alexa for Shopping for free when signed into their account, no Echo device, Alexa app, or Prime membership required.",
+      "source_url": "https://www.aboutamazon.com/news/retail/alexa-for-shopping-ai-assistant",
+      "source_name": "Amazon (May 13, 2026)",
+      "kind": "first_hand",
+      "archive_url": "https://web.archive.org/web/20261019184953/https://www.aboutamazon.com/news/retail/alexa-for-shopping-ai-assistant",
+      "verified_on": "2026-10-23"
+    },
+    {
+      "id": "c-buyforme-brands",
+      "subject": "buyforme",
+      "predicate": "paid_by",
+      "object": null,
+      "text": "Brands pay no referral fee on Buy for Me purchases, for now.",
+      "quote": "Currently, merchants do not pay referral fees on any “Buy for Me” purchases.",
+      "source_url": "https://feedonomics.com/blog/feedonomics-amazon-shop-direct/",
+      "source_name": "Feedonomics, an Amazon feed partner",
+      "kind": "report",
+      "archive_url": "https://web.archive.org/web/20260518193325/https://feedonomics.com/blog/feedonomics-amazon-shop-direct/",
+      "verified_on": "2026-10-23"
+    },
+    {
+      "id": "c-buyforme-plans",
+      "subject": "buyforme",
+      "predicate": "paid_by",
+      "object": null,
+      "text": "Amazon wouldn't say how it plans to make money from it.",
+      "quote": "Amazon does not currently charge a commission on sales generated through these links but declined to share with EMARKETER any details about its potential monetization plans.",
+      "source_url": "https://www.emarketer.com/content/amazon-expands-shop-direct-product-feeds-rufus-ai-strategy",
+      "source_name": "eMarketer",
+      "kind": "report",
+      "archive_url": "https://web.archive.org/web/20260316032650/https://www.emarketer.com/content/amazon-expands-shop-direct-product-feeds-rufus-ai-strategy",
+      "verified_on": "2026-10-23"
+    },
+    {
+      "id": "c-amazon-revenue",
+      "subject": "amazon",
+      "predicate": "paid_by",
+      "object": null,
+      "text": "Amazon as a whole is paid by both sides: sellers pay commissions and buy ads, shoppers pay for Prime.",
+      "quote": "Service sales primarily represent third-party seller fees, which includes commissions and any related fulfillment and shipping fees, AWS sales, advertising services, Amazon Prime membership fees, and certain digital media content subscriptions.",
+      "speaker": null,
+      "source_url": "https://www.sec.gov/Archives/edgar/data/1018724/000101872426000004/amzn-20251231.htm",
+      "source_name": "Amazon annual report (10-K, 2025)",
+      "kind": "first_hand",
+      "archive_url": null,
+      "verified_on": "2026-10-19"
+    },
+    {
+      "id": "c-chatgpt-checkout",
+      "subject": "chatgpt",
+      "predicate": "paid_by",
+      "object": "merchants",
+      "text": "ChatGPT launched checkout in 2025. Merchants paid OpenAI a small fee on each completed purchase; it was free for users.",
+      "quote": "Merchants pay a small fee on completed purchases, but the service is free for users, doesn’t affect their prices, and doesn’t influence ChatGPT’s product results.",
+      "speaker": null,
+      "source_url": "https://openai.com/index/buy-it-in-chatgpt/",
+      "source_name": "OpenAI (Sept. 29, 2025)",
+      "kind": "first_hand",
+      "archive_url": "https://web.archive.org/web/20250929190433/https://openai.com/index/buy-it-in-chatgpt/",
+      "verified_on": "2026-10-23"
+    },
+    {
+      "object": null,
+      "speaker": "OpenAI spokesperson, as quoted by Nuvei",
+      "archive_url": "https://web.archive.org/web/20261019185124/https://www.nuvei.com/posts/openai-tried-to-checkout-it-couldnt",
+      "verified_on": "2026-10-23",
+      "id": "c-chatgpt-winddown",
+      "subject": "chatgpt",
+      "predicate": "status",
+      "text": "In 2026 OpenAI wound checkout inside ChatGPT down and moved purchases to apps. One source so far.",
+      "quote": "We are evolving our commerce strategy within ChatGPT to better meet merchants and users where they are. Instant checkout is transitioning to apps, where purchases can occur more seamlessly.",
+      "source_url": "https://nuvei.com/posts/openai-tried-to-checkout-it-couldnt",
+      "source_name": "Nuvei",
+      "kind": "report"
+    },
+    {
+      "id": "c-sierra-pricing",
+      "subject": "sierra",
+      "predicate": "paid_by",
+      "object": "merchants",
+      "text": "Businesses pay Sierra per outcome, such as a saved cancellation.",
+      "quote": "outcome-based pricing is tied to tangible business impacts—such as a resolved support conversation, a saved cancellation, an upsell, a cross-sell, or any number of valuable outcomes. If the conversation is unresolved, in most cases, there's no charge.",
+      "source_url": "https://sierra.ai/blog/outcome-based-pricing-for-ai-agents",
+      "source_name": "Sierra blog (Dec. 10, 2024)",
+      "kind": "first_hand",
+      "archive_url": "https://web.archive.org/web/20261019185304/https://sierra.ai/blog/outcome-based-pricing-for-ai-agents",
+      "verified_on": "2026-10-23"
+    },
+    {
+      "id": "c-sierra-fleming",
+      "subject": "sierra",
+      "predicate": "sells_detection",
+      "object": null,
+      "text": "Sells businesses a model that tells them when the caller is an AI agent.",
+      "quote": "we’re updating our constellation of models with the launch of fleming-1, which detects when the caller on a phone call is another agent.",
+      "source_url": "https://sierra.ai/blog/caller-id-in-the-age-of-agents",
+      "source_name": "Sierra blog",
+      "kind": "first_hand",
+      "archive_url": null,
+      "verified_on": "2026-10-23"
+    },
+    {
+      "id": "c-riskified",
+      "subject": "riskified",
+      "predicate": "sells_detection",
+      "object": "muse",
+      "text": "Sells merchants a way to tie an agent's order back to a real person. Muse orders on Shopify already arrive tagged.",
+      "quote": "identify the AI personal assistant behind an order or a customer service request, resolve it to a real consumer identity, and return a risk signal in real time … orders placed through Meta's Muse already arrive tagged as agent-originated",
+      "source_url": "https://finviz.com/news/400342/riskified-launches-agent-identity-risk-intelligence-know-who-is-behind-ai-personal-assistants-like-muse-at-checkout-and-in-customer-service",
+      "source_name": "Riskified press release (Business Wire, Oct. 8, 2026)",
+      "kind": "first_hand",
+      "archive_url": "https://web.archive.org/web/20261019185636/https://finviz.com/news/400342/riskified-launches-agent-identity-risk-intelligence-know-who-is-behind-ai-personal-assistants-like-muse-at-checkout-and-in-customer-service",
+      "verified_on": "2026-10-23"
+    },
+    {
+      "id": "c-stripe-fee",
+      "subject": "stripe",
+      "predicate": "paid_by",
+      "object": "merchants",
+      "text": "Merchants pay Stripe per transaction.",
+      "quote": "2.9% + 30¢ per successful transaction for domestic cards",
+      "source_url": "https://stripe.com/pricing",
+      "source_name": "Stripe pricing",
+      "kind": "first_hand",
+      "archive_url": "https://web.archive.org/web/20261019185730/https://stripe.com/pricing",
+      "verified_on": "2026-10-23"
+    },
+    {
+      "id": "c-stripe-approve",
+      "subject": "stripe",
+      "predicate": "status",
+      "object": null,
+      "text": "With Link, you approve the amount of each purchase, not the item.",
+      "quote": "You approve the amount before every purchase.",
+      "source_url": "https://link.com/agents",
+      "source_name": "Link",
+      "kind": "first_hand",
+      "archive_url": "https://web.archive.org/web/20261019185927/https://link.com/agents",
+      "verified_on": "2026-10-23"
+    },
+    {
+      "id": "c-stripe-cart",
+      "subject": "stripe",
+      "predicate": "status",
+      "object": null,
+      "text": "The payment token doesn't check what's in the cart; the agent builder has to.",
+      "quote": "The token doesn't enforce cart details on its own, so the tool also checks the order against what the user reviewed",
+      "source_url": "https://langchain.com/blog/agents-that-can-pay-with-stripe-link",
+      "source_name": "LangChain blog (LangChain builds on Link)",
+      "kind": "report",
+      "archive_url": "https://web.archive.org/web/20261019190020/https://www.langchain.com/blog/agents-that-can-pay-with-stripe-link",
+      "verified_on": "2026-10-23"
+    },
+    {
+      "id": "c-amex-protect",
+      "subject": "amex",
+      "predicate": "terms_liability",
+      "object": "you",
+      "text": "Amex has promised to cover purchases by registered agents. It says \"in the future\".",
+      "quote": "In the future, if a Card Member authorizes an AI agent to make a purchase and that agent sends American Express the customer’s authenticated purchase intent",
+      "source_url": "https://www.americanexpress.com/en-us/newsroom/articles/innovation/american-express-debuts-agentic-commerce-experiences--ace--devel.html",
+      "source_name": "American Express (Apr. 14, 2026)",
+      "kind": "first_hand",
+      "archive_url": null,
+      "verified_on": "2026-10-23"
+    },
+    {
+      "id": "c-amex-merchants",
+      "subject": "amex",
+      "predicate": "paid_by",
+      "object": "merchants",
+      "text": "Stores pay Amex a cut of each card purchase. It is Amex's biggest source of revenue.",
+      "quote": "Discount revenue, our largest revenue source, primarily represents the amount we earn and retain from the merchant payable for facilitating transactions between Card Members and merchants on payment products issued by American Express.",
+      "source_url": "https://www.sec.gov/Archives/edgar/data/4962/000000496226000080/axp-20251231.htm",
+      "source_name": "American Express annual report (10-K, 2025)",
+      "kind": "first_hand",
+      "archive_url": null,
+      "verified_on": "2026-10-18"
+    },
+    {
+      "id": "c-amex-cardfees",
+      "subject": "amex",
+      "predicate": "paid_by",
+      "object": "you",
+      "text": "Cardholders pay Amex too: many of its cards carry an annual fee.",
+      "quote": "we charge an annual fee on many of our card products, which helps support the value offered on those products.",
+      "source_url": "https://www.sec.gov/Archives/edgar/data/4962/000000496226000080/axp-20251231.htm",
+      "source_name": "American Express annual report (10-K, 2025)",
+      "kind": "first_hand",
+      "archive_url": null,
+      "verified_on": "2026-10-18"
+    },
+    {
+      "id": "c-visa-pilot",
+      "subject": "visa",
+      "predicate": "status",
+      "object": null,
+      "text": "One integration to accept agent payments from several protocols. In pilot.",
+      "quote": "Currently in pilot with select partners including Aldar, AWS, Diddo, Highnote, Mesh, Payabli, Sumvin, and rolling out to more partners this year",
+      "source_url": "https://usa.visa.com/about-visa/newsroom/press-releases.releaseId.22276.html",
+      "source_name": "Visa (Apr. 8, 2026)",
+      "kind": "first_hand",
+      "archive_url": "https://web.archive.org/web/20261019192053/https://usa.visa.com/about-visa/newsroom/press-releases.releaseId.22276.html",
+      "verified_on": "2026-10-23"
+    },
+    {
+      "id": "c-visa-openai",
+      "subject": "visa",
+      "predicate": "partners_with",
+      "object": "chatgpt",
+      "text": "Visa and OpenAI: agent payments inside limits the user sets.",
+      "quote": "Transactions will operate within clearly defined user permissions, policies and controls, such as spending limits, merchant categories or required approvals.",
+      "source_url": "https://usa.visa.com/about-visa/newsroom/press-releases.releaseId.22496.html",
+      "source_name": "Visa (June 10, 2026)",
+      "kind": "first_hand",
+      "archive_url": "https://web.archive.org/web/20261019192226/https://usa.visa.com/about-visa/newsroom/press-releases.releaseId.22496.html",
+      "verified_on": "2026-10-23"
+    },
+    {
+      "id": "c-visa-banks",
+      "subject": "visa",
+      "predicate": "paid_by",
+      "object": "banks",
+      "text": "Visa is paid by banks: the ones that issue cards and the ones that sign up stores.",
+      "quote": "…the revenue we receive from issuers and acquirers.",
+      "source_url": "https://www.sec.gov/Archives/edgar/data/1403161/000140316125000089/v-20250930.htm",
+      "source_name": "Visa annual report (10-K, fiscal 2025)",
+      "kind": "first_hand",
+      "archive_url": null,
+      "verified_on": "2026-10-18"
+    },
+    {
+      "id": "c-visa-cardholders",
+      "subject": "visa",
+      "predicate": "status",
+      "object": null,
+      "text": "It doesn't set or earn the fees and interest your bank charges you.",
+      "quote": "We do not issue cards, extend credit or set rates and fees for account holders of Visa products nor do we earn revenue from or bear credit risk with respect to any of these activities.",
+      "source_url": "https://www.sec.gov/Archives/edgar/data/1403161/000140316125000089/v-20250930.htm",
+      "source_name": "Visa annual report (10-K, fiscal 2025)",
+      "kind": "first_hand",
+      "archive_url": null,
+      "verified_on": "2026-10-18"
+    },
+    {
+      "id": "c-mastercard-pilot",
+      "subject": "mastercard",
+      "predicate": "status",
+      "object": null,
+      "text": "Europe's first live agent payment, with Santander in Spain in March. Santander calls it a pilot, not a commercial rollout.",
+      "quote": "The pilot was conducted within Santander’s regulated payment framework and does not constitute a commercial rollout at this stage.",
+      "source_url": "https://www.mastercard.com/news/europe/en/newsroom/press-releases/en/2026/santander-and-mastercard-complete-europe-s-first-live-end-to-end-payment-executed-by-an-ai-agent/",
+      "source_name": "Mastercard (Santander)",
+      "kind": "first_hand",
+      "archive_url": "https://web.archive.org/web/20260302115806/https://www.mastercard.com/news/europe/en/newsroom/press-releases/en/2026/santander-and-mastercard-complete-europe-s-first-live-end-to-end-payment-executed-by-an-ai-agent/",
+      "verified_on": "2026-10-23"
+    },
+    {
+      "object": null,
+      "speaker": null,
+      "archive_url": "https://web.archive.org/web/20260401141143/https://www.mastercard.com/news/ap/en-hk/newsroom/press-releases/en-hk/2026/mastercard-completes-its-first-live-agentic-transaction-in-hong-kong/",
+      "verified_on": "2026-10-23",
+      "id": "c-mastercard-hk",
+      "subject": "mastercard",
+      "predicate": "status",
+      "text": "A live agent payment in Hong Kong in March: an AI agent booked and paid for an airport ride.",
+      "quote": "Mastercard today announced the completion of its first live, authenticated agentic transaction in Hong Kong",
+      "source_url": "https://www.mastercard.com/news/ap/en-hk/newsroom/press-releases/en-hk/2026/mastercard-completes-its-first-live-agentic-transaction-in-hong-kong/",
+      "source_name": "Mastercard (Mar. 27, 2026)",
+      "kind": "first_hand"
+    },
+    {
+      "object": null,
+      "speaker": null,
+      "archive_url": "https://web.archive.org/web/20261019195819/https://www.nordea.com/en/news/first-ever-finnish-ai-agent-payment-mastercard-and-nordea-completes-live-agentic-transaction",
+      "verified_on": "2026-10-23",
+      "id": "c-mastercard-fi",
+      "subject": "mastercard",
+      "predicate": "status",
+      "text": "Finland's first agent purchase, with Nordea in June. Nordea calls it a pilot.",
+      "quote": "In this pilot, an AI agent handled both the purchase and the payment based on instructions provided by the consumer.",
+      "source_url": "https://www.nordea.com/en/news/first-ever-finnish-ai-agent-payment-mastercard-and-nordea-completes-live-agentic-transaction",
+      "source_name": "Nordea (June 5, 2026)",
+      "kind": "first_hand"
+    },
+    {
+      "id": "c-mastercard-banks",
+      "subject": "mastercard",
+      "predicate": "paid_by",
+      "object": "banks",
+      "text": "Mastercard is paid by banks: the ones that issue cards and the ones that sign up stores.",
+      "quote": "Revenue from the Company’s payment network is primarily generated by charging fees to customers (issuers, acquirers and other market participants) for providing switching and other network-related services …",
+      "source_url": "https://www.sec.gov/Archives/edgar/data/1141391/000114139126000013/ma-20251231.htm",
+      "source_name": "Mastercard annual report (10-K, 2025)",
+      "kind": "first_hand",
+      "archive_url": null,
+      "verified_on": "2026-10-18"
+    },
+    {
+      "id": "c-shopify-default",
+      "subject": "shopify",
+      "predicate": "status",
+      "object": null,
+      "text": "Shopify stores show up in ChatGPT, Copilot, Google AI Mode and Gemini by default.",
+      "quote": "Products become discoverable in ChatGPT by default via Agentic Storefronts, with no separate integrations, no apps, and no transaction fees beyond standard processing rates.",
+      "source_url": "https://www.shopify.com/news/agentic-commerce-momentum",
+      "source_name": "Shopify (Mar. 24, 2026)",
+      "kind": "first_hand",
+      "archive_url": "https://web.archive.org/web/20261019201717/https://www.shopify.com/news/agentic-commerce-momentum",
+      "verified_on": "2026-10-23"
+    },
+    {
+      "id": "c-target-bot",
+      "subject": "target",
+      "predicate": "bot_contradicts_policy",
+      "object": null,
+      "text": "Target's chat bot told our agent no; Target's written policy says price adjustments are possible within 14 days, and a staff member confirmed it.",
+      "quote": "This is a standard policy and not subject to agent discretion.",
+      "speaker": "Target's virtual assistant, to our agent, Oct. 2026",
+      "source_url": "https://www.target.com/help/articles/policies-guidelines/price-match-guarantee",
+      "source_name": "Our own test; Target policy page",
+      "kind": "own_test",
+      "archive_url": "https://web.archive.org/web/20261019201922/https://www.target.com/help/articles/policies-guidelines/price-match-guarantee",
+      "verified_on": "2026-10-17"
+    },
+    {
+      "id": "c-delta",
+      "subject": "delta",
+      "predicate": "status",
+      "object": null,
+      "text": "No third-party agent can book Delta flights for you yet.",
+      "quote": "does not currently have a partnership or integration that enables a third-party AI agent to shop for or book Delta flights on a customer's behalf on our digital platforms",
+      "speaker": "Delta, to TechCrunch",
+      "source_url": "https://techcrunch.com/2026/10/06/the-next-hurdle-for-ai-agents-getting-websites-to-let-them-in/",
+      "source_name": "TechCrunch",
+      "kind": "report",
+      "archive_url": null,
+      "verified_on": "2026-10-23"
+    },
+    {
+      "id": "c-paypal-merchants",
+      "subject": "paypal",
+      "predicate": "paid_by",
+      "object": "merchants",
+      "text": "Stores pay PayPal fees on each payment.",
+      "quote": "We generate revenues from merchants primarily by charging fees for completing their payment transactions and other payment-related services.",
+      "source_url": "https://www.sec.gov/Archives/edgar/data/1633917/000163391726000024/pypl-20251231.htm",
+      "source_name": "PayPal annual report (10-K, 2025)",
+      "kind": "first_hand",
+      "archive_url": null,
+      "verified_on": "2026-10-18"
+    },
+    {
+      "id": "c-paypal-consumers",
+      "subject": "paypal",
+      "predicate": "paid_by",
+      "object": "you",
+      "text": "Consumers pay PayPal too: for currency conversion, instant transfers to the bank, crypto and credit.",
+      "quote": "We generate revenue from consumers from: foreign currency conversions, instant transfers from their PayPal or Venmo account to their bank account or debit card, and facilitating the purchase and sale of cryptocurrencies; interest, fees, or other revenue from our credit products; and other miscellaneous fees.",
+      "source_url": "https://www.sec.gov/Archives/edgar/data/1633917/000163391726000024/pypl-20251231.htm",
+      "source_name": "PayPal annual report (10-K, 2025)",
+      "kind": "first_hand",
+      "archive_url": null,
+      "verified_on": "2026-10-18"
+    }
+  ],
+  "not_on_map": [
+    {
+      "name": "Apple",
+      "note": "We looked for Apple letting agents buy on your behalf and found plans, not a product."
+    }
+  ]
+}

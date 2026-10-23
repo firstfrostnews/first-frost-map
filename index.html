@@ -3,35 +3,864 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>First Frost · Agent Map</title>
+<title>Who pays AI shopping agents? Muse, Grok and 4 more, mapped</title>
+<meta name="description" content="Only one of six AI shopping agents charges you: xAI's Grok Bot. Meta's Muse and three others are built to be paid by stores. Every line sourced.">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="First Frost">
+<meta property="og:url" content="https://map.firstfrost.news/">
+<meta property="og:title" content="Who pays the AI that shops for you?">
+<meta property="og:description" content="Only one of six AI shopping agents charges you: xAI's Grok Bot. Meta's Muse and three others are built to be paid by stores. Every line sourced.">
+<meta property="og:image" content="https://map.firstfrost.news/assets/og-card.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="A map of six AI shopping agents and who pays each one: you, or the businesses they sell to.">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:site" content="@firstfrostnews">
+<meta name="twitter:title" content="Who pays the AI that shops for you?">
+<meta name="twitter:description" content="Only one of six AI shopping agents charges you: xAI's Grok Bot. Meta's Muse and three others are built to be paid by stores. Every line sourced.">
+<meta name="twitter:image" content="https://map.firstfrost.news/assets/og-card.png">
+<meta name="twitter:image:alt" content="A map of six AI shopping agents and who pays each one: you, or the businesses they sell to.">
 <link rel="icon" type="image/png" sizes="32x32" href="assets/mark-32.png">
 <link rel="icon" type="image/png" sizes="16x16" href="assets/mark-16.png">
 <link rel="apple-touch-icon" sizes="180x180" href="assets/mark-180.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Nunito+Sans:opsz,wght@6..12,400;6..12,600;6..12,700;6..12,800;6..12,900&display=swap" rel="stylesheet">
 <style>
-  :root { --bg: #f7fafc; --ink: #182430; --muted: #5b7183; --line: #d8e3ec; --accent: #3d6f9e; }
+  :root {
+    --page: #f6f8fa; --card: #ffffff; --band: #eef3f7; --ink: #14263a; --text: #2b3f52; --muted: #44596c;
+    --label: #4a5f72; --line: #dce3ea; --link: #2445c8; --money: #e8641e; --agent: #2b50e0; --slate: #60768a;
+    --rules: #6b45c9; --wire: #a7b6c4; --no: #e58a8a; --no-ink: #c13b3b; --you-ink: #2445c8; --money-ink: #b4520f;
+    --chip: #ffffff; --chip-ink: #14263a; --chip-sub: #44596c; --chip-edge: transparent; --tint-you: .07; --tint-biz: .09; --ic-filter: none;
+    --shadow: 0 1px 0 rgba(18,22,38,.05), 0 4px 14px rgba(18,22,38,.08);
+    color-scheme: light;
+  }
   @media (prefers-color-scheme: dark) {
-    :root { --bg: #0d151d; --ink: #dce7f0; --muted: #8aa2b5; --line: #22323f; --accent: #7fb0da; }
+    :root:not([data-theme="light"]) {
+      --page: #13202d; --card: #1d2c3b; --band: #15212c; --ink: #e3ecf3; --text: #c9d6e1; --muted: #a9bccb;
+      --label: #9db2c4; --line: #33475a; --link: #8fa9ff; --money: #ff8a4c; --agent: #7d93ff; --slate: #bccad6;
+      --rules: #b39aff; --wire: #8399ae; --no: #e47d7d; --no-ink: #ff9a9a; --you-ink: #a3b6ff; --money-ink: #ffa36b;
+      --chip: #22354a; --chip-ink: #e3ecf3; --chip-sub: #a9bccb; --chip-edge: #5a7189; --tint-you: .2; --tint-biz: .34; --ic-filter: brightness(1.7);
+      --shadow: 0 1px 0 rgba(0,0,0,.2), 0 6px 18px rgba(0,0,0,.4);
+      color-scheme: dark;
+    }
+  }
+  :root[data-theme="dark"] {
+    --page: #13202d; --card: #1d2c3b; --band: #15212c; --ink: #e3ecf3; --text: #c9d6e1; --muted: #a9bccb;
+    --label: #9db2c4; --line: #33475a; --link: #8fa9ff; --money: #ff8a4c; --agent: #7d93ff; --slate: #bccad6;
+    --rules: #b39aff; --wire: #8399ae; --no: #e47d7d; --no-ink: #ff9a9a; --you-ink: #a3b6ff; --money-ink: #ffa36b;
+      --chip: #22354a; --chip-ink: #e3ecf3; --chip-sub: #a9bccb; --chip-edge: #5a7189; --tint-you: .2; --tint-biz: .34; --ic-filter: brightness(1.7);
+    --shadow: 0 1px 0 rgba(0,0,0,.2), 0 6px 18px rgba(0,0,0,.4);
+    color-scheme: dark;
   }
   * { box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
   body {
-    margin: 0; background: var(--bg); color: var(--ink);
-    font: 16px/1.6 -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    margin: 0; background: var(--page); color: var(--text);
+    font: 16px/1.55 "Nunito Sans", "Avenir Next", system-ui, sans-serif;
   }
-  .wrap { max-width: 860px; margin: 0 auto; padding: 3rem 1.25rem 4rem; }
-  .kicker { letter-spacing: .18em; text-transform: uppercase; font-size: .78rem; color: var(--accent); }
-  h1 { margin: .35rem 0 .3rem; font-size: 1.9rem; line-height: 1.2; }
-  p { color: var(--muted); margin: .4rem 0 0; }
-  nav { margin-top: 2rem; padding-top: 1rem; border-top: 1px solid var(--line); font-size: .9rem; }
-  nav a { color: var(--muted); text-decoration: none; border-bottom: 1px solid var(--line); margin-right: 1.2rem; }
-  nav a:hover { color: var(--accent); }
+  a { color: var(--link); }
+  /* gutters stay at 20px up to 1100px, where every pixel goes to the map, then open to 72px by 1440px */
+  .wrap { max-width: 1440px; margin: 0 auto; padding: 0 clamp(20px, calc(20px + (100vw - 1100px) * .153), 72px); }
+  header.top { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 12px; padding: 20px 0 8px; }
+  .brand { display: flex; align-items: center; gap: 10px; color: var(--ink); text-decoration: none; font-weight: 900; letter-spacing: .14em; text-transform: uppercase; font-size: 14px; }
+  .brand img { width: 30px; height: 30px; border-radius: 8px; }
+  nav.links { display: flex; flex-wrap: wrap; gap: 18px; font-size: 15px; font-weight: 700; }
+  nav.links a { color: var(--muted); text-decoration: none; }
+  nav.links a:hover { color: var(--link); }
+  .hero { padding: 24px 0 20px; max-width: 46em; }
+  .hero h1 { margin: 0 0 12px; color: var(--ink); font-size: clamp(34px, 5.4vw, 56px); line-height: 1.04; font-weight: 900; letter-spacing: -.012em; text-wrap: balance; }
+  .hero p { margin: 0 0 10px; font-size: 19px; color: var(--muted); text-wrap: pretty; }
+  .hero p.claim { color: var(--ink); font-weight: 700; }
+
+  .tabs { display: flex; flex-wrap: wrap; gap: 6px; padding: 4px 0 12px; }
+  .tab {
+    all: unset; box-sizing: border-box; cursor: pointer; font-size: 15px; font-weight: 800; color: var(--muted);
+    padding: 8px 14px; border-radius: 10px;
+  }
+  .tab small { font-size: 12px; font-weight: 900; margin-right: 6px; color: var(--label); }
+  .tab[aria-selected="true"] { background: var(--card); color: var(--ink); box-shadow: var(--shadow); }
+  .tab:focus-visible, .rulesbtn:focus-visible { outline: 2px solid var(--link); outline-offset: 2px; }
+  .how { margin: 0 0 14px; color: var(--muted); max-width: 62em; }
+  .rulesbtn {
+    all: unset; box-sizing: border-box; cursor: pointer; display: inline-flex; align-items: center; gap: 10px;
+    font-size: 14px; font-weight: 800; color: var(--rules); background: var(--card); border: 2px solid var(--rules);
+    border-radius: 14px; padding: 8px 14px 8px 12px; width: 100%;
+  }
+  .rulesbtn b { display: block; font-weight: 900; line-height: 1.2; }
+  .rulesbtn small { display: block; font-size: 12.5px; font-weight: 700; opacity: .85; line-height: 1.3; }
+  .rulesbtn .sw { width: 30px; height: 18px; border-radius: 9px; background: var(--line); position: relative; flex: none; transition: background .16s ease; }
+  .rulesbtn .sw::after { content: ""; position: absolute; top: 2px; left: 2px; width: 14px; height: 14px; border-radius: 50%; background: var(--card); box-shadow: 0 1px 2px rgba(0,0,0,.3); transition: transform .16s ease; }
+  .rulesbtn[aria-checked="true"] { background: var(--rules); color: var(--card); }
+  .rulesbtn[aria-checked="true"] .sw { background: color-mix(in srgb, var(--card) 40%, var(--rules)); }
+  .rulesbtn[aria-checked="true"] .sw::after { transform: translateX(12px); }
+
+  .stage { display: grid; grid-template-columns: minmax(0, 1fr) calc(360px * var(--ps, 1)); gap: 20px; align-items: start; }
+  @media (max-width: 1080px) { .stage { grid-template-columns: minmax(0, 1fr); } }
+  .boardcol { min-width: 0; }
+  .swipe { display: none; margin: 0 0 8px; font-size: 14px; color: var(--muted); }
+  @media (max-width: 700px) { .boardcol.wide .swipe { display: block; } }
+  .legend svg { flex: none; }
+  .creditt { font-size: 12px; font-weight: 800; letter-spacing: .02em; fill: var(--label); }
+  .credit { display: flex; justify-content: flex-end; align-items: center; gap: 6px; padding: 0 16px 12px; font-size: 12px; font-weight: 800; letter-spacing: .02em; color: var(--label); }
+  .credit img { width: 16px; height: 16px; }
+  .board { background: var(--card); border-radius: 16px; box-shadow: var(--shadow); overflow-x: auto; min-width: 0; }
+  .board svg { display: block; width: 100%; height: auto; }
+  /* phones keep a wide, swipeable map; on anything wider the map scales to fit beside the panel */
+  @media (max-width: 700px) { .board svg { min-width: 900px; } }
+
+  aside.panel {
+    min-width: 0; background: var(--card); border-radius: 16px; box-shadow: var(--shadow); padding: 22px 22px 18px;
+    max-height: calc((100vh - 100px) / var(--ps, 1)); overflow-y: auto;
+  }
+  /* the switch and the panel float together, so both stay in reach while the map scrolls */
+  .side { position: sticky; top: 12px; display: grid; gap: 12px; min-width: 0; zoom: var(--ps, 1); }
+  @media (max-width: 1080px) { .side { position: static; } aside.panel { max-height: none; } }
+  .phead { position: sticky; top: -22px; z-index: 2; background: var(--card); margin: -22px -22px 0; padding: 22px 22px 10px; border-bottom: 1px solid var(--line); }
+  .panel .hint { color: var(--muted); margin: 0; }
+  .panel header { display: flex; align-items: center; gap: 12px; margin-bottom: 4px; }
+  .panel header img { width: 48px; height: 48px; object-fit: contain; }
+  .panel h3 { margin: 0; color: var(--ink); font-size: 26px; line-height: 1.1; font-weight: 900; }
+  .panel .org { font-size: 14px; color: var(--muted); }
+  .panel .pays { margin: 10px 0 0; font-size: 14px; color: var(--muted); }
+  .panel section { border-top: 1px solid var(--line); padding-top: 12px; margin-top: 14px; }
+  .phead + section { border-top: 0; }
+  .panel h4 { margin: 0 0 8px; font-size: 12px; font-weight: 900; letter-spacing: .14em; text-transform: uppercase; color: var(--label); }
+  .claim { margin: 0 0 14px; }
+  .claim p { margin: 0 0 6px; color: var(--ink); font-weight: 700; line-height: 1.4; }
+  .claim blockquote { margin: 0 0 6px; padding: 0 0 0 12px; border-left: 3px solid var(--line); color: var(--text); font-size: 14.5px; line-height: 1.5; }
+  .claim .who { font-size: 13px; color: var(--muted); }
+  .src { display: flex; flex-wrap: wrap; gap: 4px 12px; font-size: 13px; color: var(--muted); }
+  .tag { font-size: 11.5px; font-weight: 800; letter-spacing: .04em; padding: 2px 7px; border-radius: 6px; border: 1.5px solid var(--line); color: var(--muted); }
+  .tag.own { border-color: var(--agent); color: var(--agent); }
+  .nd { color: var(--muted); font-weight: 700; margin: 0; }
+  .chips { display: flex; flex-wrap: wrap; gap: 6px; margin: 0 0 10px; padding: 0; list-style: none; }
+  .chips li { font-size: 14px; font-weight: 700; padding: 3px 10px; border-radius: 8px; background: var(--band); color: var(--ink); }
+  .chips li.only { outline: 2px solid var(--rules); outline-offset: -2px; }
+
+  .legend { display: flex; flex-wrap: wrap; gap: 8px 22px; font-size: 14px; color: var(--muted); margin: 14px 0 0; }
+  .legend span { display: inline-flex; align-items: center; gap: 8px; }
+  .legend img, .panel header img, td.row img, .lhd img { background: var(--chip); border-radius: 7px; padding: 2px; }
+  .legend img { width: 22px; height: 22px; object-fit: contain; }
+  .legend .swatch { width: 22px; height: 14px; border-radius: 3px; display: inline-block; }
+  .swatch.you { background: color-mix(in srgb, var(--agent) 14%, var(--card)); border: 1px solid color-mix(in srgb, var(--agent) 40%, var(--card)); }
+  .swatch.biz { background: color-mix(in srgb, var(--money) 16%, var(--card)); border: 1px solid color-mix(in srgb, var(--money) 45%, var(--card)); }
+  .legend .note { flex-basis: 100%; }
+
+  /* svg */
+  svg text { font-family: "Nunito Sans", "Avenir Next", system-ui, sans-serif; }
+  .bank { fill: var(--band); }
+  .lane { fill: var(--band); opacity: .55; }
+  .tint.you { fill: var(--agent); opacity: var(--tint-you); }
+  .tint.biz { fill: var(--money); opacity: var(--tint-biz); }
+  .banklabel, .lanelabel, .colhead { font-size: 12px; font-weight: 900; letter-spacing: .1em; fill: var(--label); }
+  .colhead.you { fill: var(--you-ink); }
+  .colhead.biz { fill: var(--money-ink); }
+  .colsub { font-size: 12px; fill: var(--muted); }
+  .divider { stroke: var(--line); stroke-width: 1.5; stroke-dasharray: 4 5; }
+  .node { cursor: pointer; transition: opacity .16s ease; }
+  /* hover changes only colour and depth, never position, so the target never slips from under the pointer */
+  .chip, .box { transition: stroke .2s ease-out, filter .2s ease-out; }
+  .node:hover .chip, .node:hover .box { stroke: var(--link); stroke-width: 1.5; }
+  .node:hover .chip { filter: drop-shadow(0 1px 0 rgba(18,22,38,.06)) drop-shadow(0 6px 14px rgba(18,22,38,.16)); }
+  .node:focus { outline: none; }
+  .node:focus-visible .chip { stroke: var(--link); stroke-width: 2; }
+  .ic-slate { filter: var(--ic-filter); }
+  .chip { fill: var(--chip); stroke: var(--chip-edge); stroke-width: 1; filter: drop-shadow(0 1px 0 rgba(18,22,38,.06)) drop-shadow(0 3px 8px rgba(18,22,38,.10)); }
+  .node.faded image { opacity: .5; }
+  .nm { font-size: 14.5px; font-weight: 800; fill: var(--chip-ink); }
+  .sub { font-size: 11.5px; fill: var(--chip-sub); }
+  .badge rect { fill: var(--rules); }
+  .badge text { fill: var(--card); font-size: 10px; font-weight: 900; letter-spacing: .06em; }
+  .edge { transition: opacity .16s ease; }
+  .edge path { fill: none; }
+  .edge.partner path { stroke: var(--wire); stroke-width: 1.6; }
+  .edge.block path { stroke: var(--no); stroke-width: 1.8; stroke-dasharray: 5 4; }
+  .edge.block line { stroke: var(--no-ink); stroke-width: 2.4; stroke-linecap: round; }
+  .edge.own path { stroke: var(--slate); stroke-width: 7; stroke-linecap: round; }
+  .edge.own path.core { stroke: var(--card); stroke-width: 3; }
+  .edge.spot path { stroke: var(--slate); stroke-width: 2.2; stroke-dasharray: 1 5; stroke-linecap: round; }
+  .edge.money path { stroke: var(--money); stroke-width: 2.6; }
+  .edge.money.you path { stroke: var(--agent); }
+  .edge.unknown path { stroke: var(--wire); stroke-width: 1.8; stroke-dasharray: 3 4; }
+  .edge.serves path { stroke: var(--slate); stroke-width: 1.8; }
+  .edge.rulefor path { stroke: var(--rules); stroke-width: 2.2; stroke-dasharray: 1 5; stroke-linecap: round; }
+  .region { stroke-width: 1.5; }
+  .region.camp { fill: var(--agent); fill-opacity: .05; stroke: var(--agent); stroke-opacity: .35; }
+  .region.plain { fill: var(--band); fill-opacity: .6; stroke: var(--line); }
+  .region.ended { fill: none; stroke: var(--label); stroke-opacity: .6; stroke-dasharray: 6 5; }
+  .wall { fill: var(--band); fill-opacity: .5; stroke: var(--slate); stroke-opacity: .55; stroke-width: 10; stroke-dasharray: 18 4; }
+  .regionlabel { font-size: 13px; font-weight: 900; letter-spacing: .1em; fill: var(--ink); }
+  .regionsub { font-size: 12px; fill: var(--muted); }
+  .warn { font-size: 12px; font-weight: 800; fill: var(--money-ink); }
+  .warn.rules { fill: var(--rules); }
+  .boxlabel { font-size: 16px; font-weight: 900; fill: var(--chip-ink); }
+  .box { fill: var(--chip); stroke: var(--line); stroke-width: 1.5; }
+  .box.you { fill: color-mix(in srgb, var(--agent) 12%, var(--chip)); stroke: color-mix(in srgb, var(--agent) 45%, var(--chip)); }
+  .box.biz { fill: color-mix(in srgb, var(--money) 14%, var(--chip)); stroke: color-mix(in srgb, var(--money) 50%, var(--chip)); }
+  .box.none { fill: none; stroke: var(--wire); stroke-dasharray: 5 4; }
+  .qmark { font-size: 22px; font-weight: 900; fill: var(--label); }
+
+  .has-sel .node:not(.on) { opacity: .22; }
+  .has-sel .edge:not(.on) { opacity: .07; }
+  .edge.quiet { opacity: 0; }
+  .has-sel .edge.quiet.on { opacity: 1; }
+
+  /* grid */
+  .gridwrap { padding: 14px; display: grid; gap: 22px; }
+  .gridwrap > div { min-width: 0; }
+  .gridwrap h3 { margin: 0 0 8px; font-size: 12px; font-weight: 900; letter-spacing: .1em; text-transform: uppercase; color: var(--label); }
+  .tablebox { overflow-x: auto; }
+  table { border-collapse: separate; border-spacing: 0; width: 100%; font-size: 14px; }
+  table.wide { min-width: 980px; }
+  table.mid { min-width: 720px; }
+  th, td { padding: 9px 10px; border-bottom: 1px solid var(--line); text-align: center; vertical-align: middle; }
+  thead th { font-size: 12px; font-weight: 900; letter-spacing: .04em; color: var(--label); vertical-align: bottom; }
+  thead tr.grp th { font-size: 11px; letter-spacing: .1em; text-transform: uppercase; border-bottom: 0; padding-bottom: 0; text-align: left; }
+  th.v { padding: 6px 3px; width: 30px; }
+  th.v span { writing-mode: vertical-rl; transform: rotate(180deg); white-space: nowrap; display: inline-block; text-align: left; }
+  td.m { padding-left: 3px; padding-right: 3px; }
+  .gstart { border-left: 1px solid var(--line); }
+  th.txt { text-align: left; }
+  th.row, td.row { text-align: left; position: sticky; left: 0; background: var(--card); z-index: 1; }
+  td.row button { all: unset; cursor: pointer; display: flex; align-items: center; gap: 8px; }
+  td.row img { width: 26px; height: 26px; object-fit: contain; }
+  td.row b { display: block; color: var(--ink); font-weight: 800; line-height: 1.2; white-space: nowrap; }
+  td.row small { display: block; color: var(--muted); font-size: 12px; line-height: 1.2; white-space: nowrap; }
+  td.row button:focus-visible { outline: 2px solid var(--link); outline-offset: 2px; }
+  td.txt { text-align: left; color: var(--text); min-width: 180px; font-size: 13.5px; }
+  .yes { color: var(--ink); font-weight: 900; }
+  .no { color: var(--no-ink); font-weight: 900; }
+  .ownc { color: var(--slate); font-weight: 900; font-size: 12px; }
+  .none { color: var(--wire); }
+  .rulec { color: var(--rules); font-weight: 900; }
+  th.rcol, td.rcol { background: color-mix(in srgb, var(--rules) 7%, var(--card)); }
+  tr[data-id] { transition: opacity .16s ease; cursor: pointer; }
+  tr[data-id] td { transition: background-color .2s ease-out; }
+  tr[data-id]:hover td { background-color: color-mix(in srgb, var(--link) 6%, var(--card)); }
+  tr[data-id]:hover b { color: var(--link); }
+  .has-sel tr[data-id]:not(.on) { opacity: .3; }
+
+  /* labels */
+  .labels { display: grid; grid-template-columns: repeat(auto-fill, minmax(min(250px, 100%), 1fr)); gap: 16px; padding: 16px; }
+  .label {
+    all: unset; box-sizing: border-box; cursor: pointer; display: grid; grid-row: span 9; grid-template-rows: subgrid; row-gap: 0;
+    background: var(--card); color: var(--ink); border: 2px solid var(--ink); border-radius: 3px; padding: 10px 12px; min-width: 0;
+    transition: opacity .16s ease, border-color .2s ease-out, box-shadow .2s ease-out;
+  }
+  .label:focus-visible { outline: 2px solid var(--link); outline-offset: 3px; }
+  .label:hover { border-color: var(--link); box-shadow: var(--shadow); }
+  td.row b { transition: color .2s ease-out; }
+  td.row button:hover b { color: var(--link); }
+  .has-sel .label:not(.on) { opacity: .3; }
+  .lhd { display: flex; align-items: center; gap: 10px; padding-bottom: 6px; border-bottom: 8px solid var(--ink); }
+  .lhd img { width: 34px; height: 34px; object-fit: contain; }
+  .lh { font-weight: 900; font-size: 24px; line-height: 1.1; }
+  .lo { font-size: 12.5px; color: var(--muted); }
+  .lr { display: grid; grid-template-columns: auto minmax(0, 1fr); gap: 10px; align-items: start; font-size: 13.5px; padding: 6px 0; border-bottom: 1px solid var(--ink); }
+  .lr.last { border-bottom: 8px solid var(--ink); }
+  .lk { font-weight: 800; }
+  .lv { text-align: right; min-width: 0; font-weight: 700; }
+  .lv small { display: block; font-size: 12px; color: var(--muted); font-weight: 400; line-height: 1.35; margin-top: 2px; }
+  .lf { font-size: 12px; color: var(--muted); padding-top: 6px; }
+  .pill { display: inline-block; padding: 1px 9px; border-radius: 999px; font-size: 12.5px; font-weight: 900; white-space: nowrap; }
+  .pill.biz { background: var(--money); color: #14263a; }
+  .pill.you { background: var(--agent); color: #fff; }
+  .pill.unk { border: 1.5px dashed var(--wire); color: var(--muted); }
+  .pill.both { background: linear-gradient(90deg, color-mix(in srgb, var(--agent) 22%, var(--card)) 50%, color-mix(in srgb, var(--money) 28%, var(--card)) 50%); color: var(--ink); }
+  .warnc { color: var(--money-ink); }
+
+  /* "who writes the rules" switch: everyone else steps back and can't be picked */
+  #board.only-pap .node:not(.member), #board.only-pap tr[data-id]:not(.member), #board.only-pap .label:not(.member) { opacity: .12; pointer-events: none; }
+  #board.only-pap .edge:not(.pp) { opacity: 0; }
+
+  footer { margin-top: 36px; padding: 28px 0 56px; border-top: 1px solid var(--line); color: var(--muted); font-size: 14.5px; }
+  footer ul { padding-left: 18px; margin: 8px 0 16px; }
+  @media (prefers-reduced-motion: reduce) { .chip, .box, td.row b, tr[data-id] td { transition: none; } .node, .edge, .label, tr[data-id], .rulesbtn .sw, .rulesbtn .sw::after { transition: none; } html { scroll-behavior: auto; } }
 </style>
 </head>
 <body>
-<main class="wrap">
-  <div class="kicker">First Frost</div>
-  <h1>Agent Map</h1>
-  <p>Coming soon.</p>
-  <nav><a href="https://firstfrost.news">firstfrost.news</a><a href="https://scoreboard.firstfrost.news">scoreboard</a></nav>
-</main>
+<div class="wrap">
+  <header class="top">
+    <a class="brand" href="https://firstfrost.news"><img src="assets/mark-32.png" alt="">First Frost · Agent Map</a>
+    <nav class="links" aria-label="Sections">
+      <a href="#map">The map</a>
+      <a href="#how-it-works">How it works</a>
+      <a href="data/map.json">Data</a>
+      <a href="https://scoreboard.firstfrost.news">Scoreboard</a>
+    </nav>
+  </header>
+
+  <section class="hero">
+    <h1>Who pays the AI that shops for you?</h1>
+    <p class="claim">Of the six agents on this map that buy things for you, only one charges you. Four are built to be paid by the stores.</p>
+    <p>Every line is a company's own words or a news report, quoted and linked. Five ways to draw the same facts. Pick any name to see the sentence behind it.</p>
+  </section>
+
+  <div class="tabs" role="tablist" aria-label="Ways to draw the map" id="tabs"></div>
+  <p class="how" id="how"></p>
+
+  <div class="stage" id="map">
+    <div class="boardcol" id="boardcol">
+      <p class="swipe">Wide view: swipe sideways inside the map, or try Labels.</p>
+      <div class="board" id="board"></div>
+      <div class="legend" id="legend" aria-label="Legend"></div>
+    </div>
+    <div class="side">
+      <button class="rulesbtn" id="rulesbtn" type="button" role="switch" aria-checked="false"><span class="sw"></span><span><b>Personal Agent Protocol (PAP)</b><small>Show only who is helping write these rules</small></span></button>
+      <aside class="panel" id="panel" aria-live="polite"></aside>
+    </div>
+  </div>
+
+  <footer id="how-it-works">
+    <strong>How this map works</strong>
+    <ul>
+      <li>Every line rests on a source we checked by hand, with the exact sentence quoted. Where a company's own page says it, we say so; where only press reports say it, we say that too.</li>
+      <li>"Who pays for it" means who each agent, service or payment network makes its own money from. It is not the whole company behind it, and not what you pay for the things an agent buys for you. We draw it only when a source says so.</li>
+      <li>We describe, we don't label. The quotes carry the weight.</li>
+      <li>Every change lives in the public history of this site. We correct with new entries, never by rewriting old ones.</li>
+      <li>Companies on this map can send corrections through <a href="https://firstfrost.news/about">our About page</a>.</li>
+      <li>Not on the map doesn't mean it doesn't exist. <span id="notonmap"></span></li>
+      <li>The whole dataset is one file: <a href="data/map.json">data/map.json</a>. Reuse it under <a href="https://creativecommons.org/licenses/by/4.0/">CC BY 4.0</a>: credit First Frost and link the map. Quotes belong to their authors.</li>
+    </ul>
+    <a href="https://firstfrost.news">firstfrost.news</a> · <a href="https://scoreboard.firstfrost.news">scoreboard</a>
+  </footer>
+</div>
+
+<script>
+const ICON = { agent: 'assets/cast/agent.png', service: 'assets/cast/bot.png', rail: 'assets/cast/coin.png', door: 'assets/cast/door.png', store: 'assets/cast/store.png', platform: 'assets/cast/platform.png', bank: 'assets/cast/bank.png', you: 'assets/cast/person.png' };
+const iconOf = (e) => ICON[e.type === 'door' ? e.kind || 'door' : e.type];
+const ORDER = ['paid_by', 'terms_liability', 'partners_with', 'blocks', 'builds_own_agent', 'sells_detection', 'bot_contradicts_policy', 'status'];
+const KIND = { first_hand: "Company's own words", report: 'Press report', own_test: 'Our own test' };
+const SIDE = { businesses: 'businesses', you: 'you', both: 'both sides' };
+const PILL = { businesses: '<span class="pill biz">Businesses</span>', you: '<span class="pill you">You</span>', both: '<span class="pill both">Both</span>' };
+const NS = 'http://www.w3.org/2000/svg';
+let D, BY = {}, POS = {}, MEMBERS = new Map(), EDGES = [], AT = {}, view = 'sides', sel = null, pap = false;
+
+const esc = (s) => String(s).replace(/[&<>"]/g, (c) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c]));
+const objs = (c) => (Array.isArray(c.object) ? c.object : [c.object]).filter((o) => o && BY[o]);
+const fmtDate = (s) => new Date(s + 'T12:00:00Z').toLocaleDateString('en-US', { month: 'short', day: 'numeric', year: 'numeric' });
+const ofType = (t) => D.entities.filter((e) => e.type === t).map((e) => e.id);
+const claim = (id) => D.claims.find((c) => c.id === id);
+const pill = (id) => (POS[id] ? PILL[POS[id].side] : '<span class="pill unk">Not disclosed</span>');
+// pseudo boxes (who pays / who it works for) count as members so the switch never hides them
+const inPap = (id) => !BY[id] || MEMBERS.has(id);
+
+function el(tag, attrs = {}, parent) {
+  const e = document.createElementNS(NS, tag);
+  for (const k in attrs) if (attrs[k] != null) e.setAttribute(k, attrs[k]);
+  if (parent) parent.appendChild(e);
+  return e;
+}
+function txt(parent, x, y, s, cls, anchor = 'middle') {
+  const t = el('text', { x, y, class: cls, 'text-anchor': anchor }, parent);
+  t.textContent = s;
+  return t;
+}
+
+function buildIndex() {
+  D.entities.forEach((e) => { BY[e.id] = e; });
+  (D.positions || []).forEach((p) => { POS[p.entity] = p; });
+  D.coalitions.forEach((co) => {
+    D.entities.forEach((e) => {
+      const lists = Object.values(co.lists).filter((l) => l.members.includes(e.name)).map((l) => l.label);
+      const lead = Object.values(co.lead_entities || {}).includes(e.id);
+      if (lists.length || lead) MEMBERS.set(e.id, { lists, lead: lead ? co.lead_note[e.id] : null });
+    });
+  });
+  const seen = new Set();
+  const add = (a, b, k) => { const key = a + '|' + b + '|' + k; if (!seen.has(key) && BY[a] && BY[b]) { seen.add(key); EDGES.push({ a, b, k }); } };
+  D.claims.forEach((c) => {
+    const os = objs(c);
+    if (c.predicate === 'partners_with') os.forEach((o) => add(c.subject, o, 'partner'));
+    if (c.predicate === 'blocks') os.forEach((o) => add(c.subject, o, 'block'));
+    if (c.predicate === 'builds_own_agent') os.forEach((o) => add(c.subject, o, 'own'));
+    if (c.predicate === 'sells_detection') os.forEach((o) => add(c.subject, o, 'spot'));
+    if (c.predicate === 'paid_by') os.forEach((o) => add(o, c.subject, 'money'));
+  });
+}
+
+// ---------- svg pieces ----------
+let SVG;
+function newSvg(w, h, label) {
+  const board = document.getElementById('board');
+  board.innerHTML = '';
+  AT = {};
+  SVG = el('svg', { viewBox: `0 0 ${w} ${h}`, role: 'group', 'aria-label': label });
+  board.appendChild(SVG);
+  const defs = el('defs', {}, SVG);
+  [['arrow-money', 'var(--money)'], ['arrow-you', 'var(--agent)']].forEach(([id, fill]) => {
+    const m = el('marker', { id, viewBox: '0 0 10 10', refX: 9, refY: 5, markerWidth: 7, markerHeight: 7, orient: 'auto-start-reverse' }, defs);
+    el('path', { d: 'M0,0 L10,5 L0,10 z', fill }, m);
+  });
+  return SVG;
+}
+// the source travels with every screenshot
+// the date travels too: the facts change, and a screenshot outlives the day it was taken
+const creditStamp = () => `v${D.version} · ${fmtDate(D.checked_through)}`;
+const creditText = () => `map.firstfrost.news · ${creditStamp()}`;
+// narrow: the sides view's right-hand column is too narrow for one line
+function credit(s, w, h, base = h - 14, narrow = false) {
+  const g = el('g', { class: 'credit' }, s);
+  if (narrow) {
+    // laid out like a chip: icon centred on two left-aligned lines, the block pushed to the right edge
+    const y = base - 12;
+    const a = txt(g, 0, y - 2, 'map.firstfrost.news', 'creditt', 'start');
+    const b = txt(g, 0, y + 13, creditStamp(), 'creditt', 'start');
+    const x0 = w - 16 - Math.max(a.getComputedTextLength(), b.getComputedTextLength());
+    a.setAttribute('x', x0); b.setAttribute('x', x0);
+    el('image', { href: 'assets/mark-32.png', x: x0 - 22, y: y - 6, width: 16, height: 16 }, g);
+    return;
+  }
+  const t = txt(g, w - 16, base, creditText(), 'creditt', 'end');
+  el('image', { href: 'assets/mark-32.png', x: w - 38 - t.getComputedTextLength(), y: base - 13, width: 16, height: 16 }, g);
+}
+const creditHtml = () => `<div class="credit"><img src="assets/mark-32.png" alt="">${creditText()}</div>`;
+function nodeG(parent, id, label) {
+  const g = el('g', { class: 'node' + (inPap(id) ? ' member' : ''), tabindex: 0, role: 'button', 'aria-label': label || BY[id].name, 'data-id': id }, parent);
+  g.addEventListener('click', () => select(id));
+  g.addEventListener('keydown', (ev) => { if (ev.key === 'Enter' || ev.key === ' ') { ev.preventDefault(); select(id); } });
+  return g;
+}
+function badge(g, x, y) {
+  const b = el('g', { class: 'badge' }, g);
+  el('rect', { x, y, width: 36, height: 17, rx: 8.5 }, b);
+  txt(b, x + 18, y + 12.5, 'PAP', '');
+}
+// a name tag: avatar on the left, name and one line under it; x,y = left edge, vertical centre
+function chip(layer, id, x, y, o = {}) {
+  const e = BY[id], g = nodeG(layer, id);
+  const bg = el('rect', { class: 'chip', x, y: y - 21, height: 42, rx: 10 }, g);
+  el('image', { href: iconOf(e), x: x + 7, y: y - 15, width: 30, height: 30, class: ['door', 'service'].includes(e.type) ? 'ic-slate' : null }, g);
+  const a = txt(g, x + 45, y - 2, e.name, 'nm', 'start');
+  const b = txt(g, x + 45, y + 13, o.sub ?? e.org, 'sub', 'start');
+  const member = MEMBERS.has(id) && o.badge !== false;
+  const w = o.w ?? Math.ceil(Math.max(a.getComputedTextLength() + (member ? 82 : 58), b.getComputedTextLength() + 58));
+  bg.setAttribute('width', w);
+  if (o.faded) g.classList.add('faded');
+  if (member) badge(g, x + w - 26, y - 29);
+  AT[id] = { x, y, w };
+  return g;
+}
+function xmark(g, x, y) {
+  el('line', { x1: x - 5, y1: y - 5, x2: x + 5, y2: y + 5 }, g);
+  el('line', { x1: x - 5, y1: y + 5, x2: x + 5, y2: y - 5 }, g);
+}
+// how a line leaves one tag and enters the other
+function route(a, b, mode) {
+  const A = AT[a], B = AT[b];
+  if (mode === 'straight') return `M${A.x + A.w / 2},${A.y} L${B.x + B.w / 2},${B.y}`;
+  // a company and its own agent stacked in one column: a short stem, never a loop
+  if (mode === 'stem' && A.x < B.x + B.w && B.x < A.x + A.w) {
+    const [t, u] = A.y < B.y ? [A, B] : [B, A], x = Math.max(t.x, u.x) + 20;
+    return `M${x},${t.y + 21} L${x},${u.y - 21}`;
+  }
+  let p, q;
+  if (A.x + A.w <= B.x) { p = [A.x + A.w, A.y]; q = [B.x, B.y]; }
+  else if (B.x + B.w <= A.x) { p = [A.x, A.y]; q = [B.x + B.w, B.y]; }
+  else if (Math.abs(A.y - B.y) < 60) {
+    const [t, u] = A.y < B.y ? [A, B] : [B, A];
+    return `M${t.x + t.w / 2},${t.y + 21} L${u.x + u.w / 2},${u.y - 21}`;
+  } else {
+    const bend = Math.max(24, Math.min(A.x, B.x) - 60);
+    return `M${A.x},${A.y} C${bend},${A.y} ${bend},${B.y} ${B.x},${B.y}`;
+  }
+  const mx = (p[0] + q[0]) / 2;
+  return `M${p[0]},${p[1]} C${mx},${p[1]} ${mx},${q[1]} ${q[0]},${q[1]}`;
+}
+function edge(layer, a, b, k, d) {
+  const g = el('g', { class: `edge ${k}` + (inPap(a) && inPap(b) ? ' pp' : ''), 'data-a': a, 'data-b': b }, layer);
+  const p = el('path', { d }, g);
+  // the X sits just outside the one saying no, where chips rarely cover it
+  if (k.startsWith('block')) { const m = p.getPointAtLength(Math.min(p.getTotalLength() / 2, 56)); xmark(g, m.x, m.y); }
+  if (k.startsWith('own')) el('path', { d, class: 'core' }, g);
+  if (k.startsWith('money')) p.setAttribute('marker-end', k.includes('you') ? 'url(#arrow-you)' : 'url(#arrow-money)');
+  return g;
+}
+function drawEdges(layer, mode, quiet = () => false, quietMode = 'straight') {
+  EDGES.filter((e) => AT[e.a] && AT[e.b]).forEach((e) => {
+    const m = e.k === 'own' ? 'stem' : null;
+    if (quiet(e)) edge(layer, e.a, e.b, e.k + ' quiet', route(e.a, e.b, m || quietMode));
+    else edge(layer, e.a, e.b, e.k, route(e.a, e.b, m || mode));
+  });
+}
+function stack(layer, ids, x, y0, step = 50, o = {}) {
+  ids.forEach((id, i) => chip(layer, id, x, y0 + i * step, o[id] || {}));
+}
+function region(s, x, y, w, h, cls, label, sub) {
+  el('rect', { x, y, width: w, height: h, rx: cls === 'wall' ? 6 : 26, class: cls === 'wall' ? 'wall' : 'region ' + cls }, s);
+  if (label) txt(s, x + 20, y + 28, label, 'regionlabel', 'start');
+  if (sub) txt(s, x + 20, y + 46, sub, 'regionsub', 'start');
+}
+const subFor = (id) => (POS[id] && POS[id].note ? `${BY[id].org} · ${POS[id].note.replace(/\.$/, '').toLowerCase()}` : undefined);
+
+// ---------- A: two banks ----------
+function drawBank() {
+  const COL = { you: [124, 330], both: [330, 560], businesses: [560, 838] };
+  const lanes = [['agent', 'WORKS FOR YOU'], ['service', 'SOLD TO BUSINESSES'], ['rail', 'PAYMENTS AND DATA']];
+  const hidden = D.entities.filter((e) => e.type !== 'door' && !POS[e.id]).map((e) => e.id);
+  const H = 78 + lanes.reduce((n, [t]) => n + 54 + 50 * Math.max(1, ...['you', 'both', 'businesses'].map((sd) => ofType(t).filter((id) => POS[id] && POS[id].side === sd).length)), 0) + (hidden.length ? 80 : 16);
+  const s = newSvg(1100, Math.max(H, 740), 'Two sides: who each one works for, and who pays for it');
+  const bottom = Math.max(H, 740);
+  el('rect', { x: 0, y: 0, width: 112, height: bottom, class: 'bank' }, s);
+  el('rect', { x: 846, y: 0, width: 254, height: bottom, class: 'bank' }, s);
+  txt(s, 56, 34, 'YOU', 'banklabel');
+  el('image', { href: ICON.you, x: 22, y: 330, width: 68, height: 58 }, s);
+  txt(s, 973, 34, 'STORES · PLATFORMS · BANKS', 'banklabel');
+
+  txt(s, 481, 26, 'WHO PAYS FOR IT?', 'colhead');
+  txt(s, (COL.you[0] + COL.you[1]) / 2, 66, 'YOU', 'colhead you');
+  txt(s, (COL.both[0] + COL.both[1]) / 2, 66, 'BOTH', 'colhead');
+  txt(s, (COL.businesses[0] + COL.businesses[1]) / 2, 66, 'BUSINESSES', 'colhead biz');
+
+  const laneLayer = el('g', {}, s), tintLayer = el('g', {}, s), edgeLayer = el('g', {}, s), nodeLayer = el('g', {}, s);
+  let y = 78;
+  lanes.forEach(([type, label]) => {
+    const by = { you: [], both: [], businesses: [] };
+    ofType(type).forEach((id) => { if (POS[id]) by[POS[id].side].push(id); });
+    const rows = Math.max(1, ...Object.values(by).map((l) => l.length));
+    const h = 44 + rows * 50;
+    el('rect', { x: 120, y, width: 720, height: h, rx: 12, class: 'lane' }, laneLayer);
+    txt(laneLayer, 134, y + 22, label, 'lanelabel', 'start');
+    Object.entries(by).forEach(([side, list]) => {
+      const opts = {};
+      list.forEach((id) => { if (subFor(id)) opts[id] = { sub: subFor(id), faded: true }; });
+      stack(nodeLayer, list, COL[side][0] + 12, y + 58, 50, opts);
+    });
+    y += h + 10;
+  });
+  el('rect', { x: 120, y: 52, width: COL.you[1] - 120, height: y - 58, rx: 10, class: 'tint you' }, tintLayer);
+  el('rect', { x: COL.businesses[0], y: 52, width: 840 - COL.businesses[0], height: y - 58, rx: 10, class: 'tint biz' }, tintLayer);
+  if (hidden.length) {
+    el('rect', { x: 120, y: y + 4, width: 720, height: 64, rx: 12, class: 'region ended' }, laneLayer);
+    txt(laneLayer, 134, y + 40, 'NOT DISCLOSED', 'colhead', 'start');
+    hidden.forEach((id, i) => chip(nodeLayer, id, 330 + i * 200, y + 36, { sub: `${BY[id].org} · ${D.types[BY[id].type].toLowerCase()}` }));
+  }
+
+  const doors = ['amazon', 'walmart', 'target', 'bestbuy', 'sephora', 'wayfair', 'gap', 'shopify', 'instacart', 'expedia', 'ticketmaster', 'delta', 'jpm'];
+  stack(nodeLayer, doors, 862, 82, 51);
+  // a line from the tray at the bottom would cut across the whole map; it shows when you pick either end
+  drawEdges(edgeLayer, 'curve', (e) => hidden.includes(e.a) || hidden.includes(e.b));
+  credit(s, 1100, bottom, bottom - 14, true);
+  return ['cast', 'you', 'sides', 'partner', 'block', 'own', 'spot', 'money', 'badge', 'notdisclosed'];
+}
+
+// ---------- B: turf ----------
+function drawTurf() {
+  const s = newSvg(1100, 684, 'Turf: camps and walls');
+  region(s, 16, 44, 584, 308, 'camp', "META'S SIDE", 'Muse, and the companies it signed with');
+  region(s, 396, 44, 394, 308, 'camp');
+  txt(s, 616, 72, "GOOGLE'S SIDE", 'regionlabel', 'start');
+  txt(s, 616, 90, 'Universal Cart, and the stores', 'regionsub', 'start');
+  txt(s, 616, 106, 'it names', 'regionsub', 'start');
+  txt(s, 416, 72, 'IN BOTH', 'regionlabel', 'start');
+  txt(s, 416, 90, 'Signed with both', 'regionsub', 'start');
+  region(s, 572, 368, 218, 108, 'ended', 'OPENAI', 'Checkout ended in 2026');
+  region(s, 16, 368, 344, 108, 'plain', 'NO CAMP YET', 'No signed deals we could find');
+  region(s, 376, 368, 180, 108, 'plain', 'NO DEALS YET', 'With any outside agent');
+  region(s, 16, 492, 774, 176, 'plain', 'SOLD TO BUSINESSES · PAYMENTS AND DATA');
+  region(s, 812, 44, 272, 230, 'wall');
+  txt(s, 948, 76, 'WALL', 'regionlabel');
+  txt(s, 948, 94, 'Turns outside agents away', 'regionsub');
+  region(s, 812, 300, 272, 164, 'wall');
+  txt(s, 948, 332, 'WALL', 'regionlabel');
+  txt(s, 948, 350, 'Turns outside agents away', 'regionsub');
+
+  const edgeLayer = el('g', {}, s), nodeLayer = el('g', {}, s);
+  const P = {
+    muse: [40, 122], shopify: [40, 210], bestbuy: [40, 262], gap: [40, 314], expedia: [222, 210], instacart: [222, 262], ticketmaster: [222, 314],
+    walmart: [416, 210], wayfair: [416, 262], sephora: [416, 314],
+    gcart: [616, 150], target: [616, 210],
+    chatgpt: [590, 442],
+    grok: [40, 442], instinct: [196, 442],
+    delta: [396, 442],
+    sierra: [36, 566], riskified: [226, 566], stripe: [416, 566], paypal: [606, 566],
+    visa: [36, 622], mastercard: [226, 622], amex: [416, 622], plaid: [606, 622],
+    amazon: [836, 150], buyforme: [836, 214], jpm: [836, 400],
+  };
+  const opts = { chatgpt: { sub: 'OpenAI', faded: true }, buyforme: { sub: "Amazon's own agent" } };
+  Object.entries(P).forEach(([id, [x, y]]) => chip(nodeLayer, id, x, y, opts[id] || {}));
+  // camps and walls carry this view at rest; a name's lines show only when you pick it
+  drawEdges(edgeLayer, 'curve', () => true, 'curve');
+  credit(s, 1100, 684);
+  // nothing sits above the camps, so start the frame just above them
+  s.setAttribute('viewBox', '0 28 1100 656');
+  return ['cast', 'partner', 'block', 'own', 'spot', 'money', 'wall', 'badge'];
+}
+
+// ---------- C: follow the money ----------
+const PSEUDO = {
+  'pay-you': { name: 'You', note: 'Paid for by: you' },
+  'pay-biz': { name: 'Businesses', note: 'Paid for by: businesses' },
+  'pay-none': { name: 'Not disclosed', note: 'Who pays for it: not disclosed' },
+  'for-you': { name: 'You', note: 'Works for: you' },
+  'for-biz': { name: 'Businesses', note: 'Works for: businesses' },
+};
+function box(layer, id, x, y, cls, icon, label, sub) {
+  const g = nodeG(layer, id, PSEUDO[id].note);
+  const r = el('rect', { x, y: y - 30, height: 60, rx: 14, class: 'box ' + cls }, g);
+  if (icon) el('image', { href: icon, x: x + 12, y: y - 18, width: 36, height: 36 }, g);
+  else txt(g, x + 30, y + 8, '?', 'qmark');
+  const a = txt(g, x + 58, y + (sub ? -1 : 6), label, 'boxlabel', 'start');
+  const b = sub ? txt(g, x + 58, y + 16, sub, 'sub', 'start') : null;
+  const w = Math.max(180, Math.ceil(Math.max(a.getComputedTextLength(), b ? b.getComputedTextLength() : 0)) + 74);
+  r.setAttribute('width', w);
+  AT[id] = { x, y, w };
+}
+function drawMoney() {
+  const rows = ['grok', 'muse', 'gcart', 'chatgpt', 'instinct', 'buyforme', 'amex', 'paypal', 'stripe', 'visa', 'mastercard', 'plaid', 'sierra', 'riskified'];
+  const step = 66, H = 100 + (rows.length - 1) * step + 70;
+  const s = newSvg(1100, H, 'Follow the money: who pays for each one, and who it works for');
+  txt(s, 110, 40, 'WHO PAYS FOR IT', 'colhead');
+  txt(s, 535, 40, 'AGENT, SERVICE OR NETWORK', 'colhead');
+  txt(s, 990, 40, 'WHO IT WORKS FOR', 'colhead');
+  const bandLayer = el('g', {}, s), edgeLayer = el('g', {}, s), nodeLayer = el('g', {}, s);
+  el('rect', { x: 382, y: 62, width: 306, height: (rows.length - 1) * step + 92, rx: 18, class: 'lane' }, bandLayer);
+  box(nodeLayer, 'pay-you', 20, 100 + 2 * step, 'you', ICON.you, 'You');
+  box(nodeLayer, 'pay-none', 20, 100 + 5 * step, 'none', null, 'Not disclosed');
+  box(nodeLayer, 'pay-biz', 20, 100 + 9 * step, 'biz', ICON.store, 'Businesses', 'stores, advertisers, banks');
+  box(nodeLayer, 'for-you', 900, 100 + 3 * step, 'you', ICON.you, 'You');
+  box(nodeLayer, 'for-biz', 900, 100 + 12.5 * step, 'biz', ICON.store, 'Businesses');
+
+  const PAYERS = { you: ['pay-you'], businesses: ['pay-biz'], both: ['pay-you', 'pay-biz'] };
+  rows.forEach((id, i) => {
+    const y = 100 + i * step, e = BY[id], side = POS[id] && POS[id].side;
+    const g = chip(nodeLayer, id, 420, y, { w: 230, sub: id === 'buyforme' ? "Amazon's own agent" : subFor(id), faded: id === 'chatgpt' });
+    if (side) PAYERS[side].forEach((payer) => edge(edgeLayer, payer, id, payer === 'pay-you' ? 'money you' : 'money', route(payer, id)));
+    else edge(edgeLayer, 'pay-none', id, 'unknown', route('pay-none', id));
+    const serves = e.type === 'agent' ? ['for-you'] : e.type === 'service' ? ['for-biz'] : id === 'stripe' ? ['for-you', 'for-biz'] : [];
+    serves.forEach((t) => edge(edgeLayer, id, t, 'serves', route(id, t)));
+    if (side === 'businesses' && e.type === 'agent') txt(g, 535, y + 34, 'Paid by businesses, works for you', 'warn');
+    if (id === 'sierra') {
+      txt(g, 535, y + 34, 'Also co-leads the rules for your agent', 'warn rules');
+      const A = AT.sierra, B = AT['for-you'];
+      edge(edgeLayer, 'sierra', 'for-you', 'rulefor', `M${A.x + A.w},${A.y + 8} C${A.x + A.w + 130},${A.y + 8} ${B.x - 130},${B.y + 14} ${B.x},${B.y + 14}`);
+    }
+    if (id === 'plaid' && EDGES.some((x) => x.a === 'plaid' && x.b === 'jpm' && x.k === 'money')) txt(g, 535, y + 34, 'Also pays JPMorgan Chase for account access', 'warn');
+  });
+  credit(s, 1100, H);
+  return ['cast', 'you', 'money', 'moneyyou', 'unknown', 'serves', 'rulefor', 'badge', 'notdisclosed'];
+}
+
+// ---------- D: the grid ----------
+function drawGrid() {
+  SVG = null;
+  const agents = ofType('agent');
+  const touches = (o) => EDGES.some((e) => e.k !== 'money' && ((e.a === o && agents.includes(e.b)) || (e.b === o && agents.includes(e.a))));
+  const groups = [
+    ['Stores and platforms', D.entities.filter((e) => e.type === 'door' && e.org !== 'Bank' && touches(e.id))],
+    ['Banks', D.entities.filter((e) => e.type === 'door' && e.org === 'Bank' && touches(e.id))],
+    ['Payments', D.entities.filter((e) => e.type === 'rail' && touches(e.id))],
+  ].filter(([, l]) => l.length);
+  const cols = groups.flatMap(([, l]) => l);
+  const first = (c) => groups.some(([, l]) => l[0] === c);
+  const has = (k, a, b) => EDGES.some((e) => e.k === k && e.a === a && e.b === b);
+  const cell = (a, o) => {
+    const t = `${BY[a].name} × ${o.name}`, g = ' m' + (first(o) ? ' gstart' : '');
+    if (has('block', o.id, a)) return `<td class="no${g}" title="${esc(t)}: said no">✕</td>`;
+    if (has('own', o.id, a)) return `<td class="ownc${g}" title="${esc(t)}: its own agent">OWN</td>`;
+    if (has('partner', a, o.id) || has('partner', o.id, a)) return `<td class="yes${g}" title="${esc(t)}: signed or connected">✓</td>`;
+    return `<td class="none${g}">·</td>`;
+  };
+  const firstText = (id, p) => { const c = D.claims.find((x) => x.subject === id && x.predicate === p); return c ? esc(c.text) : ''; };
+  const rule = (id) => (MEMBERS.has(id) ? '<span class="rulec">✓</span>' : '<span class="none">·</span>');
+  const rowHead = (id, sub) => `<td class="row"><button data-id="${id}"><img src="${iconOf(BY[id])}" alt=""><span><b>${esc(BY[id].name)}</b><small>${esc(sub ?? BY[id].org)}</small></span></button></td>`;
+  const tr = (id) => `<tr data-id="${id}"${MEMBERS.has(id) ? ' class="member"' : ''}>`;
+
+  let h = `<div class="gridwrap"><div><h3>Agents that work for you</h3><div class="tablebox"><table class="wide"><thead>
+    <tr class="grp"><th class="row"></th><th colspan="3"></th>${groups.map(([g, l]) => `<th colspan="${l.length}" class="gstart">${esc(g)}</th>`).join('')}</tr>
+    <tr><th class="row">Agent</th><th>Who pays for it</th><th class="txt">If it goes wrong</th><th class="rcol v"><span>PAP</span></th>${cols.map((c) => `<th class="v${first(c) ? ' gstart' : ''}"><span>${esc(c.name)}</span></th>`).join('')}</tr></thead><tbody>`;
+  agents.forEach((a) => {
+    h += `${tr(a)}${rowHead(a, subFor(a))}<td>${pill(a)}</td><td class="txt">${firstText(a, 'terms_liability') || '<span class="none">Nothing on record</span>'}</td><td class="rcol">${rule(a)}</td>${cols.map((c) => cell(a, c)).join('')}</tr>`;
+  });
+  h += '</tbody></table></div></div><div><h3>In the middle: sold to businesses, payments and data</h3><div class="tablebox"><table class="mid"><thead><tr><th class="row">Company</th><th class="rcol">PAP</th><th>Who pays for it</th><th class="txt">What it does here</th></tr></thead><tbody>';
+  [...ofType('service'), ...ofType('rail')].forEach((id) => {
+    const c = D.claims.find((x) => x.subject === id && ['sells_detection', 'status'].includes(x.predicate));
+    h += `${tr(id)}${rowHead(id)}<td class="rcol">${rule(id)}</td><td>${pill(id)}</td><td class="txt">${c ? esc(c.text) : '<span class="none">·</span>'}</td></tr>`;
+  });
+  h += '</tbody></table></div></div></div>';
+  const board = document.getElementById('board');
+  board.innerHTML = h + creditHtml();
+  // the whole row answers; a click on the name button bubbles up to it, so keyboard users get the same
+  board.querySelectorAll('tr[data-id]').forEach((r) => r.addEventListener('click', () => select(r.dataset.id)));
+  return ['grid', 'notdisclosed'];
+}
+
+// ---------- E: labels ----------
+function drawLabels() {
+  SVG = null;
+  const names = (l) => l.map((id) => BY[id].name).join(', ');
+  const row = (k, v, sub, last) => `<div class="lr${last ? ' last' : ''}"><span class="lk">${k}</span><span class="lv">${v}${sub ? `<small>${sub}</small>` : ''}</span></div>`;
+  const same = { you: ['Yes', ''], businesses: ['<span class="warnc">No</span>', 'Paid by businesses, works for you'], both: ['Partly', ''] };
+  const html = ofType('agent').map((id) => {
+    const e = BY[id], p = POS[id];
+    const lets = EDGES.filter((x) => x.k === 'partner' && (x.a === id || x.b === id)).map((x) => (x.a === id ? x.b : x.a));
+    const away = EDGES.filter((x) => x.k === 'block' && x.b === id).map((x) => x.a);
+    const maker = EDGES.filter((x) => x.k === 'own' && x.b === id).map((x) => x.a);
+    const risk = D.claims.find((c) => c.subject === id && c.predicate === 'terms_liability');
+    const m = MEMBERS.get(id);
+    const [sv, ss] = p ? same[p.side] : ['Unknown', ''];
+    return `<button class="label${m ? ' member' : ''}" data-id="${id}" aria-label="${esc(e.name)}">
+      <div class="lhd"><img src="${ICON.agent}" alt=""><div><div class="lh">${esc(e.name)}</div><div class="lo">${esc(maker.length ? `${BY[maker[0]].name}'s own agent` : e.org)}</div></div></div>
+      ${row('Who pays for it', pill(id), p ? esc(claim(p.claims[0]).text) : esc(e.paid_by_note || ''))}
+      ${row('Works for', 'You')}
+      ${row('Same side?', sv, ss)}
+      ${row('If it goes wrong', risk ? esc(risk.text) : '<span class="nd">Nothing on record</span>')}
+      ${row('Lets it in', lets.length ? `${lets.length}` : '—', esc(names(lets)))}
+      ${row('Turned it away', away.length ? `${away.length}` : '—', esc(names(away)))}
+      ${row('Helps write PAP', m ? '<span class="rulec">Yes</span>' : '—', m ? esc(m.lead || `Named in ${m.lists.join(' and ')}`) : '', true)}
+      <div class="lf">${p && p.note ? esc(p.note) + ' ' : ''}Tap for sources.</div>
+    </button>`;
+  }).join('');
+  const board = document.getElementById('board');
+  board.innerHTML = `<div class="labels">${html}</div>${creditHtml()}`;
+  board.querySelectorAll('.label').forEach((b) => b.addEventListener('click', () => select(b.dataset.id)));
+  return ['labels'];
+}
+
+// ---------- legend ----------
+const LEG = {
+  cast: `<span><img src="${ICON.agent}" alt="">Works for you</span><span><img src="${ICON.service}" alt="">Sold to businesses</span><span><img src="${ICON.rail}" alt="">Payments and data</span><span><img src="${ICON.store}" alt="">Stores</span><span><img src="${ICON.platform}" alt="">Platforms</span><span><img src="${ICON.bank}" alt="">Banks</span>`,
+  you: `<span><img src="${ICON.you}" alt="">You</span>`,
+  sides: '<span><i class="swatch you"></i>Paid for by you</span><span><i class="swatch biz"></i>Paid for by businesses</span>',
+  partner: '<span><svg width="28" height="12"><path d="M2 6 H26" stroke="var(--wire)" stroke-width="2"/></svg>Signed or connected</span>',
+  block: '<span><svg width="32" height="14"><path d="M2 7 H30" stroke="var(--no)" stroke-width="1.8" stroke-dasharray="5 4"/><path d="M11 2 l10 10 M21 2 l-10 10" stroke="var(--no-ink)" stroke-width="2.2" stroke-linecap="round"/></svg>Said no</span>',
+  own: '<span><svg width="30" height="12"><path d="M4 6 H26" stroke="var(--slate)" stroke-width="7" stroke-linecap="round"/><path d="M4 6 H26" stroke="var(--card)" stroke-width="3"/></svg>Its own agent</span>',
+  spot: '<span><svg width="28" height="12"><path d="M2 6 H26" stroke="var(--slate)" stroke-width="2.2" stroke-dasharray="1 5" stroke-linecap="round"/></svg>Sells a tool that spots its orders</span>',
+  money: '<span><svg width="30" height="12"><path d="M2 6 H22" stroke="var(--money)" stroke-width="2.6"/><path d="M21 1 L29 6 L21 11 z" fill="var(--money)"/></svg>Money from businesses</span>',
+  moneyyou: '<span><svg width="30" height="12"><path d="M2 6 H22" stroke="var(--agent)" stroke-width="2.6"/><path d="M21 1 L29 6 L21 11 z" fill="var(--agent)"/></svg>Money from you</span>',
+  unknown: '<span><svg width="28" height="12"><path d="M2 6 H26" stroke="var(--wire)" stroke-width="1.8" stroke-dasharray="3 4"/></svg>Who pays for it: not disclosed</span>',
+  serves: '<span><svg width="28" height="12"><path d="M2 6 H26" stroke="var(--slate)" stroke-width="1.8"/></svg>Works for</span>',
+  rulefor: '<span><svg width="28" height="12"><path d="M2 6 H26" stroke="var(--rules)" stroke-width="2.2" stroke-dasharray="1 5" stroke-linecap="round"/></svg>Writes the rules your agent follows</span>',
+  badge: '<span><svg width="38" height="18"><rect x="1" y="1" width="36" height="16" rx="8" fill="var(--rules)"/><text x="19" y="12.5" text-anchor="middle" font-size="10" font-weight="900" fill="var(--card)">PAP</text></svg>Helps write the Personal Agent Protocol, the rules Meta and Sierra are leading for personal agents</span>',
+  wall: '<span><svg width="32" height="18"><rect x="4" y="4" width="24" height="10" fill="none" stroke="var(--slate)" stroke-opacity=".55" stroke-width="5" stroke-dasharray="7 2"/></svg>Wall: turns outside agents away</span>',
+  grid: '<span><b class="rulec">PAP</b>Helps write the Personal Agent Protocol</span><span><b class="yes">✓</b>Signed or connected</span><span><b class="no">✕</b>Said no</span><span><b class="ownc">OWN</b>Its own agent</span><span><b class="none">·</b>Nothing found, which is not the same as nothing</span>',
+  labels: '<span>Same rows on every label, like the side of a food package. Read across to compare.</span>',
+  notdisclosed: '<span class="note">Not disclosed: in everything we could find, no one has said who pays for it.</span>',
+};
+
+// ---------- panel ----------
+function claimsFor(id) {
+  return D.claims.filter((c) => c.subject === id || objs(c).includes(id));
+}
+function claimHtml(c) {
+  const other = c.subject === sel ? '' : `<span class="who">${esc(BY[c.subject] ? BY[c.subject].name : '')}</span>`;
+  return `<div class="claim">
+    ${other}<p>${esc(c.text)}</p>
+    <blockquote>“${esc(c.quote)}”${c.speaker ? `<div class="who">${esc(c.speaker)}</div>` : ''}</blockquote>
+    <div class="src">
+      <span class="tag ${c.kind === 'own_test' ? 'own' : ''}">${KIND[c.kind]}</span>
+      <a href="${esc(c.source_url)}" rel="noopener">${esc(c.source_name)}</a>
+      ${c.archive_url ? `<a href="${esc(c.archive_url)}" rel="noopener">archived copy</a>` : ''}
+      <span>checked ${fmtDate(c.verified_on)}</span>
+    </div>
+  </div>`;
+}
+function rulesPanel() {
+  const co = D.coalitions[0], L = Object.values(co.lists), all = L.map((l) => new Set(l.members));
+  const onMap = [...MEMBERS.keys()].map((id) => BY[id].name).join(', ');
+  return `<header><div><h3>${esc(co.name)}</h3><div class="org">Announced ${fmtDate(co.announced)} · led by Meta and Sierra</div></div></header>
+    <p class="pays">A shared set of rules for how personal agents deal with businesses. It is one of several: Google's Universal Cart runs on another, called UCP. Only the companies taking part in this one are lit up; pick one to see its lines. The two announcements name different partners; names in only one list are outlined.</p>
+    ${L.map((l) => `<section><h4>${esc(l.label)}</h4><ul class="chips">${l.members.map((m) => `<li class="${all.every((x) => x.has(m)) ? '' : 'only'}">${esc(m)}</li>`).join('')}</ul>
+      <div class="src"><span class="tag">Company's own words</span><a href="${esc(l.source_url)}" rel="noopener">source</a><span>checked ${fmtDate(l.verified_on)}</span></div></section>`).join('')}
+    <section><h4>On this map</h4><p class="nd">${esc(onMap)}</p></section>`;
+}
+function pseudoPanel(id) {
+  const linked = [...new Set([...document.querySelectorAll(`#board [data-a="${id}"], #board [data-b="${id}"]`)].map((g) => (g.dataset.a === id ? g.dataset.b : g.dataset.a)))].filter((x) => BY[x]);
+  const body = linked.length ? `<p class="nd">${esc(linked.map((x) => BY[x].name).join(', '))}</p>` : '<p class="nd">No one on this map.</p>';
+  return `<header><div><h3>${esc(PSEUDO[id].note)}</h3></div></header><section>${body}</section>`;
+}
+function drawPanel() {
+  const panel = document.getElementById('panel');
+  if (!sel) {
+    panel.innerHTML = pap ? rulesPanel() : '<p class="hint">Pick any name on the map. You will see who pays for it, what its terms say if something goes wrong, who signed with it and who said no, each with the sentence it comes from. Pick it again to clear.</p>';
+    return;
+  }
+  if (PSEUDO[sel]) { panel.innerHTML = pseudoPanel(sel); return; }
+  const e = BY[sel], p = POS[sel];
+  const groups = ORDER.map((pred) => {
+    const body = claimsFor(sel).filter((c) => c.predicate === pred).map(claimHtml).join('');
+    return body ? `<section><h4>${esc(D.predicates[pred])}</h4>${body}</section>` : '';
+  }).join('');
+  const m = MEMBERS.get(sel);
+  const rules = m ? `<section><h4>${esc(D.predicates.member_of)}</h4><div class="claim"><p>${esc(m.lead || `Named in ${m.lists.join(' and ')}.`)}</p>${pap ? '' : '<div class="src"><a href="#" data-rules>See who else is in it</a></div>'}</div></section>` : '';
+  const pays = e.type === 'door' ? '' : `<p class="pays">Who pays for it: ${p ? `${SIDE[p.side]}, per the line${p.claims.length > 1 ? 's' : ''} below.` : `not disclosed.${e.paid_by_note ? ' ' + esc(e.paid_by_note) : ''}`}</p>`;
+  panel.innerHTML = `<div class="phead"><header><img src="${iconOf(e)}" alt=""><div><h3>${esc(e.name)}</h3><div class="org">${esc(e.org)} · ${esc(D.types[e.type])}</div></div></header>${pays}</div>
+    ${groups}${rules}`;
+  panel.querySelector('[data-rules]')?.addEventListener('click', (ev) => { ev.preventDefault(); setPap(true); });
+}
+
+// ---------- selection, switch, tabs ----------
+function mark() {
+  const board = document.getElementById('board');
+  board.classList.toggle('only-pap', pap);
+  board.classList.toggle('has-sel', !!sel);
+  board.querySelectorAll('.on').forEach((n) => n.classList.remove('on'));
+  document.getElementById('rulesbtn').setAttribute('aria-checked', String(pap));
+  if (!sel) return;
+  const hit = new Set([sel]);
+  board.querySelectorAll('[data-a]').forEach((g) => {
+    if (g.dataset.a === sel || g.dataset.b === sel) { g.classList.add('on'); hit.add(g.dataset.a); hit.add(g.dataset.b); }
+  });
+  board.querySelectorAll('[data-id]').forEach((n) => { if (hit.has(n.dataset.id)) n.classList.add('on'); });
+}
+function writeHash() {
+  history.replaceState(null, '', '#' + [view, sel, pap ? 'pap' : null].filter(Boolean).join('/'));
+}
+function refresh() { mark(); drawPanel(); writeHash(); }
+function select(id, keep) {
+  if (pap && !inPap(id)) return;
+  sel = sel === id && !keep ? null : id;
+  refresh();
+  if (sel && !keep && window.innerWidth < 1080) document.getElementById('panel').scrollIntoView({ block: 'start' });
+}
+function setPap(on) {
+  pap = on;
+  if (pap) sel = null;
+  refresh();
+}
+const VIEWS = {
+  sides: { key: 'A', label: 'Two sides', draw: drawBank, how: 'You on the left, stores and banks on the right. In between, three lanes: agents that work for you, services sold to businesses, and payments. The column a name sits in shows who pays for it: you, both, or businesses.' },
+  turf: { key: 'B', label: 'Turf', draw: drawTurf, how: 'Each camp is an agent plus the companies that signed with it. Walls are companies that turn outside agents away. Pick a name to see its lines.' },
+  money: { key: 'C', label: 'Follow the money', draw: drawMoney, how: 'Only the money. On the left, who pays for it. In the middle, the agent, service or network. On the right, who it works for. The boxes on both sides can be picked too.' },
+  grid: { key: 'D', label: 'The grid', draw: drawGrid, how: 'The plainest version: one row per agent, one column per company it deals with, after who pays for it and what its terms say if something goes wrong.' },
+  labels: { key: 'E', label: 'Labels', draw: drawLabels, how: 'One label per agent, with the same rows on every label, so you can read across and compare. Where a row says "not disclosed" or "nothing on record", we found nothing.' },
+};
+function show(v) {
+  view = v;
+  document.querySelectorAll('.tab').forEach((t) => t.setAttribute('aria-selected', String(t.dataset.v === v)));
+  document.getElementById('how').textContent = VIEWS[v].how;
+  const keys = VIEWS[v].draw();
+  document.getElementById('boardcol').classList.toggle('wide', !!SVG);
+  document.getElementById('legend').innerHTML = keys.map((k) => LEG[k]).join('');
+  if (sel && !document.querySelector(`#board [data-id="${sel}"]`)) sel = null;
+  refresh();
+}
+
+Promise.all([fetch('data/map.json').then((r) => r.json()), document.fonts.ready]).then(([data]) => {
+  D = data;
+  buildIndex();
+  document.getElementById('tabs').innerHTML = Object.entries(VIEWS).map(([v, o]) => `<button class="tab" role="tab" data-v="${v}" aria-selected="false"><small>${o.key}</small>${o.label}</button>`).join('');
+  document.querySelectorAll('.tab').forEach((t) => t.addEventListener('click', () => show(t.dataset.v)));
+  document.getElementById('rulesbtn').addEventListener('click', () => setPap(!pap));
+  document.getElementById('notonmap').textContent = D.not_on_map.map((n) => `${n.name}: ${n.note}`).join(' ');
+  const parts = location.hash.slice(1).split('/');
+  pap = parts.includes('pap');
+  const hs = parts[1] && parts[1] !== 'pap' ? parts[1] : null;
+  if (hs && (BY[hs] || PSEUDO[hs])) sel = hs;
+  // phones open on the labels, the one view that reads well at that width
+  show(VIEWS[parts[0]] ? parts[0] : matchMedia('(max-width: 700px)').matches ? 'labels' : 'sides');
+});
+// beside the map, the side column is the 1440px layout scaled with the map: panel, type and spacing alike
+// 1380 = map 1020 + panel 360: at that width both sit at full size, and below it they shrink together
+const sideScale = () => {
+  const wrap = document.querySelector('.wrap'), cs = getComputedStyle(wrap);
+  const w = wrap.clientWidth - parseFloat(cs.paddingLeft) - parseFloat(cs.paddingRight) - 20;
+  const k = innerWidth > 1080 ? Math.min(1, Math.max(0.8, w / 1380)) : 1;
+  document.documentElement.style.setProperty('--ps', k.toFixed(3));
+};
+addEventListener('resize', sideScale);
+sideScale();
+</script>
 </body>
 </html>
