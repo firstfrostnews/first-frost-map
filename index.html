@@ -3,23 +3,23 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Who pays AI shopping agents? Muse, Grok and 4 more, mapped</title>
-<meta name="description" content="Only one of six AI shopping agents charges you: xAI's Grok Bot. Meta's Muse and three others are built to be paid by stores. Every line sourced.">
+<title>Who pays AI shopping agents? Muse, Dots, Grok and 4 more, mapped</title>
+<meta name="description" content="Three of seven AI shopping agents charge you: Grok Bot, OpenAI's Dots and Claude Duet. Meta's Muse and two others are built to be paid by stores. Every line sourced.">
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="First Frost">
 <meta property="og:url" content="https://map.firstfrost.news/">
 <meta property="og:title" content="Who pays the AI that shops for you?">
-<meta property="og:description" content="Only one of six AI shopping agents charges you: xAI's Grok Bot. Meta's Muse and three others are built to be paid by stores. Every line sourced.">
+<meta property="og:description" content="Three of seven AI shopping agents charge you: Grok Bot, OpenAI's Dots and Claude Duet. Meta's Muse and two others are built to be paid by stores. Every line sourced.">
 <meta property="og:image" content="https://map.firstfrost.news/assets/og-card.png">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
-<meta property="og:image:alt" content="A map of six AI shopping agents and who pays each one: you, or the businesses they sell to.">
+<meta property="og:image:alt" content="A map of seven AI shopping agents and who pays each one: you, or the businesses they sell to.">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:site" content="@firstfrostnews">
 <meta name="twitter:title" content="Who pays the AI that shops for you?">
-<meta name="twitter:description" content="Only one of six AI shopping agents charges you: xAI's Grok Bot. Meta's Muse and three others are built to be paid by stores. Every line sourced.">
+<meta name="twitter:description" content="Three of seven AI shopping agents charge you: Grok Bot, OpenAI's Dots and Claude Duet. Meta's Muse and two others are built to be paid by stores. Every line sourced.">
 <meta name="twitter:image" content="https://map.firstfrost.news/assets/og-card.png">
-<meta name="twitter:image:alt" content="A map of six AI shopping agents and who pays each one: you, or the businesses they sell to.">
+<meta name="twitter:image:alt" content="A map of seven AI shopping agents and who pays each one: you, or the businesses they sell to.">
 <link rel="icon" type="image/png" sizes="32x32" href="assets/mark-32.png">
 <link rel="icon" type="image/png" sizes="16x16" href="assets/mark-16.png">
 <link rel="apple-touch-icon" sizes="180x180" href="assets/mark-180.png">
@@ -293,7 +293,7 @@
 
   <section class="hero">
     <h1>Who pays the AI that shops for you?</h1>
-    <p class="claim">Of the six agents on this map that buy things for you, only one charges you. Four are built to be paid by the stores.</p>
+    <p class="claim">Of the seven agents on this map that buy things for you, three charge you and three are built to be paid by the stores. One hasn't said.</p>
     <p>Every line is a company's own words or a news report, quoted and linked. Five ways to draw the same facts. Pick any name to see the sentence behind it.</p>
   </section>
 
@@ -330,7 +330,7 @@
 <script>
 const ICON = { agent: 'assets/cast/agent.png', service: 'assets/cast/bot.png', rail: 'assets/cast/coin.png', door: 'assets/cast/door.png', store: 'assets/cast/store.png', platform: 'assets/cast/platform.png', bank: 'assets/cast/bank.png', you: 'assets/cast/person.png' };
 const iconOf = (e) => ICON[e.type === 'door' ? e.kind || 'door' : e.type];
-const ORDER = ['paid_by', 'terms_liability', 'partners_with', 'blocks', 'builds_own_agent', 'sells_detection', 'bot_contradicts_policy', 'status'];
+const ORDER = ['paid_by', 'terms_liability', 'partners_with', 'blocks', 'builds_own_agent', 'sells_detection', 'bot_contradicts_policy', 'status', 'before'];
 const KIND = { first_hand: "Company's own words", report: 'Press report', own_test: 'Our own test' };
 const SIDE = { businesses: 'businesses', you: 'you', both: 'both sides' };
 const PILL = { businesses: '<span class="pill biz">Businesses</span>', you: '<span class="pill you">You</span>', both: '<span class="pill both">Both</span>' };
@@ -555,9 +555,9 @@ function drawTurf() {
   txt(s, 616, 106, 'it names', 'regionsub', 'start');
   txt(s, 416, 72, 'IN BOTH', 'regionlabel', 'start');
   txt(s, 416, 90, 'Signed with both', 'regionsub', 'start');
-  region(s, 572, 368, 218, 108, 'ended', 'OPENAI', 'Checkout ended in 2026');
-  region(s, 16, 368, 344, 108, 'plain', 'NO CAMP YET', 'No signed deals we could find');
-  region(s, 376, 368, 180, 108, 'plain', 'NO DEALS YET', 'With any outside agent');
+  region(s, 16, 368, 432, 108, 'plain', 'NO CAMP YET', 'No signed deals we could find');
+  region(s, 464, 368, 136, 108, 'plain', 'NO DEALS YET', 'With outside agents');
+  region(s, 616, 368, 174, 108, 'camp', 'ANTHROPIC', 'Pays with Stripe, Shopify');
   region(s, 16, 492, 774, 176, 'plain', 'SOLD TO BUSINESSES · PAYMENTS AND DATA');
   region(s, 812, 44, 272, 230, 'wall');
   txt(s, 948, 76, 'WALL', 'regionlabel');
@@ -571,14 +571,14 @@ function drawTurf() {
     muse: [40, 122], shopify: [40, 210], bestbuy: [40, 262], gap: [40, 314], expedia: [222, 210], instacart: [222, 262], ticketmaster: [222, 314],
     walmart: [416, 210], wayfair: [416, 262], sephora: [416, 314],
     gcart: [616, 150], target: [616, 210],
-    chatgpt: [590, 442],
-    grok: [40, 442], instinct: [196, 442],
-    delta: [396, 442],
+    duet: [632, 442],
+    grok: [40, 442], dots: [176, 442], instinct: [290, 442],
+    delta: [480, 442],
     sierra: [36, 566], riskified: [226, 566], stripe: [416, 566], paypal: [606, 566],
     visa: [36, 622], mastercard: [226, 622], amex: [416, 622], plaid: [606, 622],
     amazon: [836, 150], buyforme: [836, 214], jpm: [836, 400],
   };
-  const opts = { chatgpt: { sub: 'OpenAI', faded: true }, buyforme: { sub: "Amazon's own agent" } };
+  const opts = { buyforme: { sub: "Amazon's own agent" } };
   Object.entries(P).forEach(([id, [x, y]]) => chip(nodeLayer, id, x, y, opts[id] || {}));
   // camps and walls carry this view at rest; a name's lines show only when you pick it
   drawEdges(edgeLayer, 'curve', () => true, 'curve');
@@ -608,7 +608,7 @@ function box(layer, id, x, y, cls, icon, label, sub) {
   AT[id] = { x, y, w };
 }
 function drawMoney() {
-  const rows = ['grok', 'muse', 'gcart', 'chatgpt', 'instinct', 'buyforme', 'amex', 'paypal', 'stripe', 'visa', 'mastercard', 'plaid', 'sierra', 'riskified'];
+  const rows = ['grok', 'dots', 'duet', 'muse', 'gcart', 'instinct', 'buyforme', 'amex', 'paypal', 'stripe', 'visa', 'mastercard', 'plaid', 'sierra', 'riskified'];
   const step = 66, H = 100 + (rows.length - 1) * step + 70;
   const s = newSvg(1100, H, 'Follow the money: who pays for each one, and who it works for');
   txt(s, 110, 40, 'WHO PAYS FOR IT', 'colhead');
@@ -616,16 +616,16 @@ function drawMoney() {
   txt(s, 990, 40, 'WHO IT WORKS FOR', 'colhead');
   const bandLayer = el('g', {}, s), edgeLayer = el('g', {}, s), nodeLayer = el('g', {}, s);
   el('rect', { x: 382, y: 62, width: 306, height: (rows.length - 1) * step + 92, rx: 18, class: 'lane' }, bandLayer);
-  box(nodeLayer, 'pay-you', 20, 100 + 2 * step, 'you', ICON.you, 'You');
-  box(nodeLayer, 'pay-none', 20, 100 + 5 * step, 'none', null, 'Not disclosed');
-  box(nodeLayer, 'pay-biz', 20, 100 + 9 * step, 'biz', ICON.store, 'Businesses', 'stores, advertisers, banks');
+  box(nodeLayer, 'pay-you', 20, 100 + 3 * step, 'you', ICON.you, 'You');
+  box(nodeLayer, 'pay-none', 20, 100 + 6 * step, 'none', null, 'Not disclosed');
+  box(nodeLayer, 'pay-biz', 20, 100 + 10 * step, 'biz', ICON.store, 'Businesses', 'stores, advertisers, banks');
   box(nodeLayer, 'for-you', 900, 100 + 3 * step, 'you', ICON.you, 'You');
-  box(nodeLayer, 'for-biz', 900, 100 + 12.5 * step, 'biz', ICON.store, 'Businesses');
+  box(nodeLayer, 'for-biz', 900, 100 + 13.5 * step, 'biz', ICON.store, 'Businesses');
 
   const PAYERS = { you: ['pay-you'], businesses: ['pay-biz'], both: ['pay-you', 'pay-biz'] };
   rows.forEach((id, i) => {
     const y = 100 + i * step, e = BY[id], side = POS[id] && POS[id].side;
-    const g = chip(nodeLayer, id, 420, y, { w: 230, sub: id === 'buyforme' ? "Amazon's own agent" : subFor(id), faded: id === 'chatgpt' });
+    const g = chip(nodeLayer, id, 420, y, { w: 230, sub: id === 'buyforme' ? "Amazon's own agent" : subFor(id) });
     if (side) PAYERS[side].forEach((payer) => edge(edgeLayer, payer, id, payer === 'pay-you' ? 'money you' : 'money', route(payer, id)));
     else edge(edgeLayer, 'pay-none', id, 'unknown', route('pay-none', id));
     const serves = e.type === 'agent' ? ['for-you'] : e.type === 'service' ? ['for-biz'] : id === 'stripe' ? ['for-you', 'for-biz'] : [];

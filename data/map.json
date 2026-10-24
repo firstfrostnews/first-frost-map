@@ -1,6 +1,6 @@
 {
-  "version": "1.0",
-  "checked_through": "2026-10-23",
+  "version": "2.0",
+  "checked_through": "2026-10-24",
   "types": {
     "agent": "Works for you",
     "service": "Sold to businesses",
@@ -16,7 +16,8 @@
     "builds_own_agent": "Also builds its own agent",
     "sells_detection": "Sells tools to spot agents",
     "bot_contradicts_policy": "Bot said no, policy says yes",
-    "status": "Where it stands"
+    "status": "Where it stands",
+    "before": "Before this"
   },
   "entities": [
     {
@@ -51,9 +52,15 @@
       "paid_by_note": "Free to shoppers and to brands so far; Amazon hasn't said how it will make money from it. Amazon as a whole is paid by both shoppers and sellers."
     },
     {
-      "id": "chatgpt",
-      "name": "ChatGPT checkout",
+      "id": "dots",
+      "name": "Dots",
       "org": "OpenAI",
+      "type": "agent"
+    },
+    {
+      "id": "duet",
+      "name": "Claude Duet",
+      "org": "Anthropic",
       "type": "agent"
     },
     {
@@ -221,13 +228,20 @@
       ]
     },
     {
-      "entity": "chatgpt",
-      "side": "businesses",
+      "entity": "dots",
+      "side": "you",
       "claims": [
-        "c-chatgpt-checkout",
-        "c-chatgpt-winddown"
-      ],
-      "note": "Wound down in 2026."
+        "c-dots-plan",
+        "c-dots-price"
+      ]
+    },
+    {
+      "entity": "duet",
+      "side": "you",
+      "claims": [
+        "c-duet-plan",
+        "c-duet-price"
+      ]
     },
     {
       "entity": "sierra",
@@ -362,7 +376,7 @@
       "object": null,
       "speaker": null,
       "archive_url": "https://web.archive.org/web/20261019175235/https://help.shopify.com/en/manual/online-sales-channels/agentic-storefronts/meta",
-      "verified_on": "2026-10-23",
+      "verified_on": "2026-10-24",
       "id": "c-muse-fee-now",
       "subject": "muse",
       "predicate": "paid_by",
@@ -383,7 +397,7 @@
       "source_name": "Muse Supplemental Terms of Service (Sept. 8, 2026)",
       "kind": "first_hand",
       "archive_url": "https://web.archive.org/web/20261019175429/https://muse.ai/terms",
-      "verified_on": "2026-10-23"
+      "verified_on": "2026-10-24"
     },
     {
       "id": "c-muse-cap",
@@ -396,7 +410,7 @@
       "source_name": "Muse Supplemental Terms of Service (Sept. 8, 2026)",
       "kind": "first_hand",
       "archive_url": "https://web.archive.org/web/20261019175429/https://muse.ai/terms",
-      "verified_on": "2026-10-23"
+      "verified_on": "2026-10-24"
     },
     {
       "id": "c-muse-shopify",
@@ -409,7 +423,7 @@
       "source_name": "TechCrunch",
       "kind": "report",
       "archive_url": "https://web.archive.org/web/20261019175611/https://techcrunch.com/2026/09/23/everything-new-coming-to-metas-ai-agent-muse/",
-      "verified_on": "2026-10-23"
+      "verified_on": "2026-10-24"
     },
     {
       "id": "c-muse-stripe",
@@ -422,7 +436,7 @@
       "source_name": "Stripe newsroom",
       "kind": "first_hand",
       "archive_url": "https://web.archive.org/web/20261019175756/https://stripe.com/newsroom/news/stripe-helps-meta-muse-shop-with-link",
-      "verified_on": "2026-10-23"
+      "verified_on": "2026-10-24"
     },
     {
       "id": "c-muse-paypal",
@@ -435,7 +449,7 @@
       "source_name": "TechCrunch",
       "kind": "report",
       "archive_url": "https://web.archive.org/web/20261019175611/https://techcrunch.com/2026/09/23/everything-new-coming-to-metas-ai-agent-muse/",
-      "verified_on": "2026-10-23"
+      "verified_on": "2026-10-24"
     },
     {
       "id": "c-muse-retail",
@@ -454,7 +468,7 @@
       "source_name": "TechCrunch",
       "kind": "report",
       "archive_url": "https://web.archive.org/web/20261019175611/https://techcrunch.com/2026/09/23/everything-new-coming-to-metas-ai-agent-muse/",
-      "verified_on": "2026-10-23"
+      "verified_on": "2026-10-24"
     },
     {
       "id": "c-muse-expedia",
@@ -467,7 +481,7 @@
       "source_name": "PhocusWire",
       "kind": "report",
       "archive_url": "https://web.archive.org/web/20260926191419/https://www.phocuswire.com/news/online/expedia-hotel-booking-meta-muse",
-      "verified_on": "2026-10-23"
+      "verified_on": "2026-10-24"
     },
     {
       "id": "c-muse-instacart",
@@ -480,7 +494,7 @@
       "source_name": "Mass Market Retailers",
       "kind": "report",
       "archive_url": "https://web.archive.org/web/20261019181639/https://massmarketretailers.com/instacart-brings-grocery-shopping-to-metas-muse/",
-      "verified_on": "2026-10-23"
+      "verified_on": "2026-10-24"
     },
     {
       "id": "c-muse-ticketmaster",
@@ -493,7 +507,7 @@
       "source_name": "Barrett Media",
       "kind": "report",
       "archive_url": "https://web.archive.org/web/20261019181817/https://barrettmedia.com/2026/09/11/meta-muse-ai-partners-with-ticketmaster-for-concerts/",
-      "verified_on": "2026-10-23"
+      "verified_on": "2026-10-24"
     },
     {
       "id": "c-amazon-muse",
@@ -506,7 +520,7 @@
       "source_name": "Adweek",
       "kind": "report",
       "archive_url": "https://web.archive.org/web/20261019182002/https://www.adweek.com/commerce/amazon-locks-out-metas-muse-in-agentic-shopping-standoff/",
-      "verified_on": "2026-10-23"
+      "verified_on": "2026-10-24"
     },
     {
       "id": "c-jpm-agents",
@@ -522,7 +536,7 @@
       "source_name": "CNBC",
       "kind": "report",
       "archive_url": "https://web.archive.org/web/20261019175904/https://www.cnbc.com/2026/10/13/jpmorgan-ai-agents-account-access.html",
-      "verified_on": "2026-10-23",
+      "verified_on": "2026-10-24",
       "speaker": "CNBC headline"
     },
     {
@@ -536,7 +550,7 @@
       "source_name": "CNBC",
       "kind": "report",
       "archive_url": "https://web.archive.org/web/20261019175904/https://www.cnbc.com/2026/10/13/jpmorgan-ai-agents-account-access.html",
-      "verified_on": "2026-10-23"
+      "verified_on": "2026-10-24"
     },
     {
       "id": "c-jpm-smartcash",
@@ -549,7 +563,7 @@
       "source_name": "CNBC",
       "kind": "report",
       "archive_url": "https://web.archive.org/web/20261019175904/https://www.cnbc.com/2026/10/13/jpmorgan-ai-agents-account-access.html",
-      "verified_on": "2026-10-23"
+      "verified_on": "2026-10-24"
     },
     {
       "id": "c-jpm-liability",
@@ -563,7 +577,7 @@
       "source_name": "Banking Dive",
       "kind": "report",
       "archive_url": "https://web.archive.org/web/20261019182329/https://www.bankingdive.com/news/jpmorgan-dimon-ai-agents-bank-customers-liability-transfer/832870/",
-      "verified_on": "2026-10-23"
+      "verified_on": "2026-10-24"
     },
     {
       "id": "c-plaid-jpm",
@@ -576,7 +590,7 @@
       "source_name": "CNBC",
       "kind": "report",
       "archive_url": "https://web.archive.org/web/20261019175904/https://www.cnbc.com/2026/10/13/jpmorgan-ai-agents-account-access.html",
-      "verified_on": "2026-10-23"
+      "verified_on": "2026-10-24"
     },
     {
       "id": "c-plaid-consumers",
@@ -589,7 +603,7 @@
       "source_name": "Plaid help center",
       "kind": "first_hand",
       "archive_url": "https://web.archive.org/web/20251006203445/https://support.plaid.com/hc/en-us/articles/16194695660311-Can-I-use-Plaid-for-free",
-      "verified_on": "2026-10-23"
+      "verified_on": "2026-10-24"
     },
     {
       "id": "c-instinct-funding",
@@ -602,7 +616,7 @@
       "source_name": "Reuters",
       "kind": "report",
       "archive_url": "https://web.archive.org/web/20261019182541/https://www.thestar.com.my/tech/tech-news/2026/09/28/ai-agent-firm-instinct-raises-1-billion-in-latest-funding-round",
-      "verified_on": "2026-10-23"
+      "verified_on": "2026-10-24"
     },
     {
       "id": "c-instinct-takerate",
@@ -629,7 +643,7 @@
       "source_name": "Grok Bot Terms",
       "kind": "first_hand",
       "archive_url": "https://web.archive.org/web/20261011200622/https://x.ai/legal/grok-bot-terms",
-      "verified_on": "2026-10-23"
+      "verified_on": "2026-10-24"
     },
     {
       "id": "c-grok-musk",
@@ -656,7 +670,7 @@
       "source_name": "Grok plans page",
       "kind": "first_hand",
       "archive_url": null,
-      "verified_on": "2026-10-23"
+      "verified_on": "2026-10-24"
     },
     {
       "id": "c-gcart-merchants",
@@ -674,7 +688,7 @@
       "source_name": "Google blog",
       "kind": "first_hand",
       "archive_url": "https://web.archive.org/web/20261019184821/https://blog.google/products-and-platforms/products/shopping/shopping-updates-google-marketing-live/",
-      "verified_on": "2026-10-23"
+      "verified_on": "2026-10-24"
     },
     {
       "id": "c-gcart-ads",
@@ -687,13 +701,13 @@
       "source_name": "Google blog",
       "kind": "first_hand",
       "archive_url": "https://web.archive.org/web/20261019184821/https://blog.google/products-and-platforms/products/shopping/shopping-updates-google-marketing-live/",
-      "verified_on": "2026-10-23"
+      "verified_on": "2026-10-24"
     },
     {
       "object": null,
       "speaker": "Modern Retail, reporting what Google's Suresh Ganapathy said",
       "archive_url": "https://web.archive.org/web/20261019184912/https://www.modernretail.co/technology/google-attracts-retailers-like-walmart-target-to-universal-cart-getting-shoppers-will-be-the-harder-part/",
-      "verified_on": "2026-10-23",
+      "verified_on": "2026-10-24",
       "id": "c-gcart-nocut",
       "subject": "gcart",
       "predicate": "paid_by",
@@ -714,7 +728,7 @@
       "source_name": "Amazon (May 13, 2026)",
       "kind": "first_hand",
       "archive_url": "https://web.archive.org/web/20261019184953/https://www.aboutamazon.com/news/retail/alexa-for-shopping-ai-assistant",
-      "verified_on": "2026-10-23"
+      "verified_on": "2026-10-24"
     },
     {
       "id": "c-buyforme-after",
@@ -727,7 +741,7 @@
       "source_name": "Amazon (Apr. 3, 2025)",
       "kind": "first_hand",
       "archive_url": "https://web.archive.org/web/20261019185039/https://www.aboutamazon.com/news/retail/amazon-shopping-app-buy-for-me-brands",
-      "verified_on": "2026-10-23"
+      "verified_on": "2026-10-24"
     },
     {
       "id": "c-buyforme-shoppers",
@@ -740,7 +754,7 @@
       "source_name": "Amazon (May 13, 2026)",
       "kind": "first_hand",
       "archive_url": "https://web.archive.org/web/20261019184953/https://www.aboutamazon.com/news/retail/alexa-for-shopping-ai-assistant",
-      "verified_on": "2026-10-23"
+      "verified_on": "2026-10-24"
     },
     {
       "id": "c-buyforme-brands",
@@ -753,7 +767,7 @@
       "source_name": "Feedonomics, an Amazon feed partner",
       "kind": "report",
       "archive_url": "https://web.archive.org/web/20260518193325/https://feedonomics.com/blog/feedonomics-amazon-shop-direct/",
-      "verified_on": "2026-10-23"
+      "verified_on": "2026-10-24"
     },
     {
       "id": "c-buyforme-plans",
@@ -766,7 +780,7 @@
       "source_name": "eMarketer",
       "kind": "report",
       "archive_url": "https://web.archive.org/web/20260316032650/https://www.emarketer.com/content/amazon-expands-shop-direct-product-feeds-rufus-ai-strategy",
-      "verified_on": "2026-10-23"
+      "verified_on": "2026-10-24"
     },
     {
       "id": "c-amazon-revenue",
@@ -783,28 +797,158 @@
       "verified_on": "2026-10-19"
     },
     {
-      "id": "c-chatgpt-checkout",
-      "subject": "chatgpt",
+      "id": "c-dots-plan",
+      "subject": "dots",
       "predicate": "paid_by",
+      "object": "you",
+      "text": "You pay for it: your first dot comes with ChatGPT Pro or Business Premium. Free, Go and Plus don't include Dots.",
+      "quote": "Your first dot is included in your Pro or Business Premium plan at no extra cost.",
+      "source_url": "https://help.openai.com/en/articles/20001530",
+      "source_name": "OpenAI Help Center: dots",
+      "kind": "first_hand",
+      "archive_url": "https://archive.ph/LVwhI",
+      "verified_on": "2026-10-24"
+    },
+    {
+      "id": "c-dots-price",
+      "subject": "dots",
+      "predicate": "paid_by",
+      "object": "you",
+      "text": "ChatGPT Pro costs $100, $200 or $500 a month.",
+      "quote": "Choose from three monthly Pro plans: … Pro 100 … $100 … Pro 200 … $200 … Pro 500 … $500",
+      "source_url": "https://help.openai.com/en/articles/9793128-what-is-chatgpt-pro",
+      "source_name": "OpenAI Help Center: ChatGPT Pro",
+      "kind": "first_hand",
+      "archive_url": null,
+      "verified_on": "2026-10-24"
+    },
+    {
+      "id": "c-dots-buy",
+      "subject": "dots",
+      "predicate": "status",
+      "object": null,
+      "text": "OpenAI launched Dots on Sept. 29, 2026, pitched mostly for work. A dot can also buy things with a card you've saved on a store's website, once you approve.",
+      "quote": "Your dot can also make purchases using a card you’ve saved on a merchant’s website. These purchases require your approval, which may be given in advance when it specifically covers the purchase.",
+      "source_url": "https://help.openai.com/en/articles/20001529",
+      "source_name": "OpenAI Help Center: dots privacy FAQ",
+      "kind": "first_hand",
+      "archive_url": "https://archive.ph/P6aku",
+      "verified_on": "2026-10-24"
+    },
+    {
+      "id": "c-dots-terms",
+      "subject": "dots",
+      "predicate": "terms_liability",
+      "object": "you",
+      "text": "OpenAI's terms make you responsible for purchases a dot makes for you.",
+      "quote": "You are responsible for transactions made on your behalf. You must provide appropriate purchase guidance, monitor your accounts, and promptly raise any errors with the relevant financial institution or payment provider.",
+      "source_url": "https://openai.com/policies/service-terms/",
+      "source_name": "OpenAI Service Terms",
+      "kind": "first_hand",
+      "archive_url": "https://web.archive.org/web/20261021154355/https://openai.com/policies/service-terms/",
+      "verified_on": "2026-10-24"
+    },
+    {
+      "id": "c-duet-plan",
+      "subject": "duet",
+      "predicate": "paid_by",
+      "object": "you",
+      "text": "You pay for it: Claude Duet is for Claude Pro and Max subscribers in the US, by waitlist for now, and uses your plan's limits.",
+      "quote": "Claude Duet is a research preview on a waitlist for Claude Pro and Max subscribers in the US. Team and Enterprise plans are not included yet.",
+      "source_url": "https://claude.com/product/claude-duet",
+      "source_name": "Claude Duet page",
+      "kind": "first_hand",
+      "archive_url": "https://web.archive.org/web/20261024135627/https://claude.com/product/claude-duet",
+      "verified_on": "2026-10-24"
+    },
+    {
+      "id": "c-duet-price",
+      "subject": "duet",
+      "predicate": "paid_by",
+      "object": "you",
+      "text": "Claude Pro is $20 a month, or $17 a month billed yearly. Max starts at $100 a month.",
+      "quote": "Pro … For everyday work … $17 … Per month with annual subscription discount … $20 … if billed monthly. … Max … From $100 … Per month",
+      "source_url": "https://claude.com/pricing",
+      "source_name": "Claude pricing page",
+      "kind": "first_hand",
+      "archive_url": "https://web.archive.org/web/20261024103730/https://claude.com/pricing",
+      "verified_on": "2026-10-24"
+    },
+    {
+      "id": "c-duet-stripe",
+      "subject": "duet",
+      "predicate": "partners_with",
+      "object": "stripe",
+      "text": "Claude Duet can pay with Link, Stripe's digital wallet. Link asks you to approve the spend, then pays with a virtual card.",
+      "quote": "You can also use Claude Duet to purchase things for your business using Link, Stripe’s digital wallet. Claude Duet confirms the item with you, and Link asks you to approve the spend. It then pays with a virtual card, so your real card number isn’t shared.",
+      "source_url": "https://claude.com/resources/articles/claude-duet",
+      "source_name": "Anthropic (Oct. 21, 2026)",
+      "kind": "first_hand",
+      "archive_url": "https://web.archive.org/web/20261024112707/https://claude.com/resources/articles/claude-duet",
+      "verified_on": "2026-10-24"
+    },
+    {
+      "id": "c-duet-shopify",
+      "subject": "duet",
+      "predicate": "partners_with",
+      "object": "shopify",
+      "text": "Claude Duet can check out at online stores with Shopify's Shop Pay.",
+      "quote": "It can also use Shop Pay from Shopify to check out at online stores.",
+      "source_url": "https://claude.com/resources/articles/claude-duet",
+      "source_name": "Anthropic (Oct. 21, 2026)",
+      "kind": "first_hand",
+      "archive_url": "https://web.archive.org/web/20261024112707/https://claude.com/resources/articles/claude-duet",
+      "verified_on": "2026-10-24"
+    },
+    {
+      "id": "c-duet-limits",
+      "subject": "duet",
+      "predicate": "status",
+      "object": null,
+      "text": "Anthropic launched Claude Duet on Oct. 21, 2026. Before it pays or sends anything it waits for your approval, and some things are off-limits even with it.",
+      "quote": "But before it sends a message, makes a payment, signs a document, or deletes anything, it shows you exactly what it’s about to do and waits for your approval. A few things are off-limits even with your approval, like trading securities or moving money between accounts.",
+      "source_url": "https://claude.com/resources/articles/claude-duet",
+      "source_name": "Anthropic (Oct. 21, 2026)",
+      "kind": "first_hand",
+      "archive_url": "https://web.archive.org/web/20261024112707/https://claude.com/resources/articles/claude-duet",
+      "verified_on": "2026-10-24"
+    },
+    {
+      "id": "c-duet-terms",
+      "subject": "duet",
+      "predicate": "terms_liability",
+      "object": "you",
+      "text": "Anthropic's terms for Claude make you responsible for what it does for you.",
+      "quote": "You are responsible for all Inputs you submit to our Services and all Actions.",
+      "source_url": "https://www.anthropic.com/legal/consumer-terms",
+      "source_name": "Anthropic Consumer Terms",
+      "kind": "first_hand",
+      "archive_url": "https://web.archive.org/web/20261024140017/https://www.anthropic.com/legal/consumer-terms",
+      "verified_on": "2026-10-24"
+    },
+    {
+      "id": "c-chatgpt-checkout",
+      "subject": "dots",
+      "predicate": "before",
       "object": "merchants",
-      "text": "ChatGPT launched checkout in 2025. Merchants paid OpenAI a small fee on each completed purchase; it was free for users.",
+      "text": "Before Dots, OpenAI sold checkout inside ChatGPT, launched in 2025. Stores paid OpenAI a small fee on each completed purchase; it was free for users.",
       "quote": "Merchants pay a small fee on completed purchases, but the service is free for users, doesn’t affect their prices, and doesn’t influence ChatGPT’s product results.",
       "speaker": null,
       "source_url": "https://openai.com/index/buy-it-in-chatgpt/",
       "source_name": "OpenAI (Sept. 29, 2025)",
       "kind": "first_hand",
       "archive_url": "https://web.archive.org/web/20250929190433/https://openai.com/index/buy-it-in-chatgpt/",
-      "verified_on": "2026-10-23"
+      "verified_on": "2026-10-24"
     },
     {
       "object": null,
       "speaker": "OpenAI spokesperson, as quoted by Nuvei",
       "archive_url": "https://web.archive.org/web/20261019185124/https://www.nuvei.com/posts/openai-tried-to-checkout-it-couldnt",
-      "verified_on": "2026-10-23",
+      "verified_on": "2026-10-24",
       "id": "c-chatgpt-winddown",
-      "subject": "chatgpt",
-      "predicate": "status",
-      "text": "In 2026 OpenAI wound checkout inside ChatGPT down and moved purchases to apps. One source so far.",
+      "subject": "dots",
+      "predicate": "before",
+      "text": "In 2026 OpenAI wound that checkout down and moved purchases to apps. One source so far.",
       "quote": "We are evolving our commerce strategy within ChatGPT to better meet merchants and users where they are. Instant checkout is transitioning to apps, where purchases can occur more seamlessly.",
       "source_url": "https://nuvei.com/posts/openai-tried-to-checkout-it-couldnt",
       "source_name": "Nuvei",
@@ -821,7 +965,7 @@
       "source_name": "Sierra blog (Dec. 10, 2024)",
       "kind": "first_hand",
       "archive_url": "https://web.archive.org/web/20261019185304/https://sierra.ai/blog/outcome-based-pricing-for-ai-agents",
-      "verified_on": "2026-10-23"
+      "verified_on": "2026-10-24"
     },
     {
       "id": "c-sierra-fleming",
@@ -834,7 +978,7 @@
       "source_name": "Sierra blog",
       "kind": "first_hand",
       "archive_url": null,
-      "verified_on": "2026-10-23"
+      "verified_on": "2026-10-24"
     },
     {
       "id": "c-riskified",
@@ -847,7 +991,7 @@
       "source_name": "Riskified press release (Business Wire, Oct. 8, 2026)",
       "kind": "first_hand",
       "archive_url": "https://web.archive.org/web/20261019185636/https://finviz.com/news/400342/riskified-launches-agent-identity-risk-intelligence-know-who-is-behind-ai-personal-assistants-like-muse-at-checkout-and-in-customer-service",
-      "verified_on": "2026-10-23"
+      "verified_on": "2026-10-24"
     },
     {
       "id": "c-stripe-fee",
@@ -860,7 +1004,7 @@
       "source_name": "Stripe pricing",
       "kind": "first_hand",
       "archive_url": "https://web.archive.org/web/20261019185730/https://stripe.com/pricing",
-      "verified_on": "2026-10-23"
+      "verified_on": "2026-10-24"
     },
     {
       "id": "c-stripe-approve",
@@ -873,7 +1017,7 @@
       "source_name": "Link",
       "kind": "first_hand",
       "archive_url": "https://web.archive.org/web/20261019185927/https://link.com/agents",
-      "verified_on": "2026-10-23"
+      "verified_on": "2026-10-24"
     },
     {
       "id": "c-stripe-cart",
@@ -886,7 +1030,7 @@
       "source_name": "LangChain blog (LangChain builds on Link)",
       "kind": "report",
       "archive_url": "https://web.archive.org/web/20261019190020/https://www.langchain.com/blog/agents-that-can-pay-with-stripe-link",
-      "verified_on": "2026-10-23"
+      "verified_on": "2026-10-24"
     },
     {
       "id": "c-amex-protect",
@@ -899,7 +1043,7 @@
       "source_name": "American Express (Apr. 14, 2026)",
       "kind": "first_hand",
       "archive_url": null,
-      "verified_on": "2026-10-23"
+      "verified_on": "2026-10-24"
     },
     {
       "id": "c-amex-merchants",
@@ -938,20 +1082,20 @@
       "source_name": "Visa (Apr. 8, 2026)",
       "kind": "first_hand",
       "archive_url": "https://web.archive.org/web/20261019192053/https://usa.visa.com/about-visa/newsroom/press-releases.releaseId.22276.html",
-      "verified_on": "2026-10-23"
+      "verified_on": "2026-10-24"
     },
     {
       "id": "c-visa-openai",
-      "subject": "visa",
-      "predicate": "partners_with",
-      "object": "chatgpt",
-      "text": "Visa and OpenAI: agent payments inside limits the user sets.",
+      "subject": "dots",
+      "predicate": "before",
+      "object": "visa",
+      "text": "Before Dots, Visa and OpenAI announced agent payments inside limits the user sets (June 2026). The announcement doesn't mention Dots.",
       "quote": "Transactions will operate within clearly defined user permissions, policies and controls, such as spending limits, merchant categories or required approvals.",
       "source_url": "https://usa.visa.com/about-visa/newsroom/press-releases.releaseId.22496.html",
       "source_name": "Visa (June 10, 2026)",
       "kind": "first_hand",
       "archive_url": "https://web.archive.org/web/20261019192226/https://usa.visa.com/about-visa/newsroom/press-releases.releaseId.22496.html",
-      "verified_on": "2026-10-23"
+      "verified_on": "2026-10-24"
     },
     {
       "id": "c-visa-banks",
@@ -990,13 +1134,13 @@
       "source_name": "Mastercard (Santander)",
       "kind": "first_hand",
       "archive_url": "https://web.archive.org/web/20260302115806/https://www.mastercard.com/news/europe/en/newsroom/press-releases/en/2026/santander-and-mastercard-complete-europe-s-first-live-end-to-end-payment-executed-by-an-ai-agent/",
-      "verified_on": "2026-10-23"
+      "verified_on": "2026-10-24"
     },
     {
       "object": null,
       "speaker": null,
       "archive_url": "https://web.archive.org/web/20260401141143/https://www.mastercard.com/news/ap/en-hk/newsroom/press-releases/en-hk/2026/mastercard-completes-its-first-live-agentic-transaction-in-hong-kong/",
-      "verified_on": "2026-10-23",
+      "verified_on": "2026-10-24",
       "id": "c-mastercard-hk",
       "subject": "mastercard",
       "predicate": "status",
@@ -1010,7 +1154,7 @@
       "object": null,
       "speaker": null,
       "archive_url": "https://web.archive.org/web/20261019195819/https://www.nordea.com/en/news/first-ever-finnish-ai-agent-payment-mastercard-and-nordea-completes-live-agentic-transaction",
-      "verified_on": "2026-10-23",
+      "verified_on": "2026-10-24",
       "id": "c-mastercard-fi",
       "subject": "mastercard",
       "predicate": "status",
@@ -1044,7 +1188,7 @@
       "source_name": "Shopify (Mar. 24, 2026)",
       "kind": "first_hand",
       "archive_url": "https://web.archive.org/web/20261019201717/https://www.shopify.com/news/agentic-commerce-momentum",
-      "verified_on": "2026-10-23"
+      "verified_on": "2026-10-24"
     },
     {
       "id": "c-target-bot",
@@ -1072,7 +1216,7 @@
       "source_name": "TechCrunch",
       "kind": "report",
       "archive_url": null,
-      "verified_on": "2026-10-23"
+      "verified_on": "2026-10-24"
     },
     {
       "id": "c-paypal-merchants",
